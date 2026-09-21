@@ -3,33 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f3f0e7">
+  <meta name="theme-color" content="#f7f8f5">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <title>Sơ đồ HĐHS DHT</title>
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#app">Đến sơ đồ</a>
   <header class="topbar">
-    <button id="backButton" class="back-button" type="button" aria-label="Quay lại">←</button>
-    <button id="homeButton" class="brand" type="button">
-      <span class="brand-mark">DHT</span>
-      <span class="brand-copy">
-        <strong>HỘI ĐỒNG HỌC SINH</strong>
-        <small>THPT Đặng Huy Trứ</small>
-      </span>
+    <button id="homeButton" class="brand" type="button" aria-label="Về trang chủ HĐHS">
+      <span class="brand-mark" aria-hidden="true">DHT<span> / </span></span>
+      <span class="brand-copy"><strong>Hội đồng Học sinh</strong><small>THPT Đặng Huy Trứ</small></span>
     </button>
-    <nav id="breadcrumbs" class="breadcrumbs" aria-label="Đường dẫn"></nav>
+    <div class="navigation"><button id="backButton" class="back-button" type="button" aria-label="Quay lại cấp trên">← <span>Quay lại</span></button><nav aria-label="Đường dẫn cấp bậc"><ol id="breadcrumbs" class="breadcrumbs"></ol></nav></div>
   </header>
-
-  <main id="app" class="stage" aria-live="polite">
-    <div class="loading">Đang tải sơ đồ…</div>
-  </main>
-
-  <footer class="footer">
-    <span>Bản thử nghiệm cơ cấu Hội đồng Học sinh THPT Đặng Huy Trứ · Dữ liệu cá nhân nhạy cảm không hiển thị.</span>
-  </footer>
-
+  <main id="app" class="stage" tabindex="-1" aria-live="polite"><div class="loading">Đang tải sơ đồ…</div></main>
+  <footer class="footer"><span>HĐHS / THPT Đặng Huy Trứ</span><span>Bản nháp trực quan hóa · Cơ cấu dự kiến</span></footer>
+  <dialog id="personDialog" aria-labelledby="personTitle"><button class="dialog-close" aria-label="Đóng thông tin thành viên">×</button><div class="person-content"></div></dialog>
+  <dialog id="roleDialog" aria-labelledby="roleTitle"><button class="dialog-close" aria-label="Đóng thông tin chức danh">×</button><div class="role-content"></div></dialog>
+  <dialog id="mapDialog" aria-labelledby="mapTitle"><button class="dialog-close" aria-label="Đóng bản đồ">×</button><h2 id="mapTitle">Duyệt cơ cấu</h2><p class="map-caption">Chọn tên để chuyển đến đơn vị. Dấu chevron mở hoặc thu nhánh con.</p><div class="map-popup-content"></div></dialog>
+  <nav class="mobile-dock" aria-label="Điều hướng nhanh">
+    <button type="button" data-mobile-home><span aria-hidden="true">⌂</span><span>Tổng quan</span></button>
+    <button type="button" data-open-map aria-haspopup="dialog"><span aria-hidden="true">☷</span><span>Duyệt cơ cấu</span></button>
+    <button type="button" data-mobile-back><span aria-hidden="true">←</span><span>Cấp trên</span></button>
+  </nav>
   <script src="./app.js"></script>
 </body>
 </html>
