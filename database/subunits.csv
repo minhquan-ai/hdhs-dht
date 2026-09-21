@@ -1,0 +1,31 @@
+id,parent_id,name,kind,sort_order,summary,status
+khoi-10,dai-hoi,Khối 10,group,1,Đại diện các lớp khối 10,Dự kiến
+khoi-11,dai-hoi,Khối 11,group,2,Đại diện các lớp khối 11,Dự kiến
+khoi-12,dai-hoi,Khối 12,group,3,Đại diện các lớp khối 12,Dự kiến
+clb-truyen-thong,hoi-dong-clb,CLB Truyền thông,club,1,7 thành viên hiện tại · 36 đăng ký casting,Đang hoạt động
+clb-nhay,hoi-dong-clb,CLB Nhảy,club,2,12 thành viên hiện tại,Đang hoạt động
+clb-van-nghe,hoi-dong-clb,CLB Văn nghệ,club,3,29 đăng ký casting,Đang tuyển
+clb-ky-nang,hoi-dong-clb,CLB Kỹ năng Đoàn - Hội,club,4,18 thành viên hiện tại · 26 đăng ký casting,Đang hoạt động
+ban-trat-tu,hoi-dong-clb,Ban Trật tự - Nề nếp,school-board,5,21 đăng ký casting,Đang tuyển
+clb-tin-hoc,hoi-dong-clb,CLB Tin học,club,6,Thông tin sẽ tiếp tục xác minh,Chưa xác minh
+doi-hsg,hoi-dong-hoc-thuat,Đội tuyển Học sinh giỏi,academic,1,Hệ thống đội tuyển học thuật,Dự kiến
+khkt,hoi-dong-hoc-thuat,Khoa học kỹ thuật,academic,2,Dự án nghiên cứu và thi khoa học kỹ thuật,Dự kiến
+hoc-thuat-lien-mon,hoi-dong-hoc-thuat,Nhóm học thuật liên môn,academic,3,Hoạt động học thuật phối hợp nhiều lĩnh vực,Dự kiến
+dd-khoi10,ban-dai-dien,Đại diện Khối 10,team,1,,Dự kiến
+dd-khoi11,ban-dai-dien,Đại diện Khối 11,team,2,,Dự kiến
+dd-khoi12,ban-dai-dien,Đại diện Khối 12,team,3,,Dự kiến
+hd-noi-dung,ban-hoat-dong,Nhóm Nội dung hoạt động,team,1,,Dự kiến
+hd-dieu-phoi,ban-hoat-dong,Nhóm Điều phối sự kiện,team,2,,Dự kiến
+hd-du-an,ban-hoat-dong,Nhóm Phát triển dự án,team,3,,Dự kiến
+tt-noi-dung,ban-truyen-thong,Nhóm Nội dung,team,1,,Dự kiến
+tt-thiet-ke,ban-truyen-thong,Nhóm Thiết kế,team,2,,Dự kiến
+tt-hinh-anh,ban-truyen-thong,Nhóm Hình ảnh & Video,team,3,,Dự kiến
+ht-du-lieu,ban-thong-tin,Nhóm Dữ liệu,team,1,,Dự kiến
+ht-he-thong,ban-thong-tin,Nhóm Hệ thống,team,2,,Dự kiến
+ht-lich-bieu-mau,ban-thong-tin,Nhóm Lịch & Biểu mẫu,team,3,,Dự kiến
+hc-thiet-bi,ban-hau-can,Nhóm Thiết bị & Vật dụng,team,1,,Dự kiến
+hc-khong-gian,ban-hau-can,Nhóm Không gian & Bố trí,team,2,,Dự kiến
+hc-nhan-luc,ban-hau-can,Nhóm Nhân lực hỗ trợ,team,3,,Dự kiến
+gs-quy-trinh,ban-giam-sat,Nhóm Quy trình & Tuân thủ,team,1,,Dự kiến
+gs-minh-bach,ban-giam-sat,Nhóm Minh bạch & Hồ sơ,team,2,,Dự kiến
+gs-phan-hoi,ban-giam-sat,Nhóm Phản hồi nội bộ,team,3,,Dự kiến

@@ -1,0 +1,18 @@
+{
+  "name": "Hội đồng Học sinh DHT",
+  "short_name": "HĐHS DHT",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#0b1220",
+  "lang": "vi",
+  "description": "Sơ đồ cơ cấu Hội đồng Học sinh THPT Đặng Huy Trứ",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

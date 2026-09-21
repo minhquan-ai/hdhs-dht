@@ -1,0 +1,25 @@
+id,unit_id,title,sort_order,summary
+rt-chu-tich,thuong-truc,Chủ tịch HĐHS,1,Điều hành chung và đại diện HĐHS
+rt-pct-dai-dien,thuong-truc,Phó Chủ tịch Đại diện & Đối thoại,2,Phụ trách đại diện lớp và tiếng nói học sinh
+rt-pct-van-hanh,thuong-truc,Phó Chủ tịch Vận hành & Phát triển,3,Phụ trách vận hành và phát triển hệ sinh thái
+rt-tong-thu-ky,thuong-truc,Tổng Thư ký,4,Hồ sơ lịch biên bản và bàn giao
+r-hdclb-cn,hoi-dong-clb,Chủ nhiệm Hội đồng CLB,1,Điều phối Hội đồng CLB
+r-hdclb-pcn,hoi-dong-clb,Phó Chủ nhiệm Hội đồng CLB,2,Hỗ trợ điều phối Hội đồng CLB
+r-hdclb-tk,hoi-dong-clb,Thư ký Hội đồng CLB,3,Hồ sơ lịch và tổng hợp
+r-hdht-cn,hoi-dong-hoc-thuat,Chủ nhiệm Hội đồng Học thuật,1,Điều phối Hội đồng Học thuật
+r-hdht-pcn,hoi-dong-hoc-thuat,Phó Chủ nhiệm Hội đồng Học thuật,2,Hỗ trợ điều phối học thuật
+r-hdht-tk,hoi-dong-hoc-thuat,Thư ký Hội đồng Học thuật,3,Hồ sơ và lịch học thuật
+r-dd-tb,ban-dai-dien,Trưởng ban,1,Điều hành Ban Đại diện Học sinh
+r-dd-ptb,ban-dai-dien,Phó Trưởng ban,2,Hỗ trợ điều hành
+r-hd-tb,ban-hoat-dong,Trưởng ban,1,Điều hành hoạt động và sự kiện
+r-hd-ptb,ban-hoat-dong,Phó Trưởng ban,2,Hỗ trợ điều hành
+r-tt-tb,ban-truyen-thong,Trưởng ban,1,Điều hành truyền thông HĐHS
+r-tt-ptb,ban-truyen-thong,Phó Trưởng ban,2,Hỗ trợ điều hành
+r-tht-tb,ban-thong-tin,Trưởng ban,1,Điều hành thông tin và hệ thống
+r-tht-ptb,ban-thong-tin,Phó Trưởng ban,2,Hỗ trợ điều hành
+r-hc-tb,ban-hau-can,Trưởng ban,1,Điều hành hậu cần
+r-hc-ptb,ban-hau-can,Phó Trưởng ban,2,Hỗ trợ điều hành
+r-gs-tb,ban-giam-sat,Trưởng ban,1,Điều hành công tác giám sát
+r-gs-ptb,ban-giam-sat,Phó Trưởng ban,2,Hỗ trợ giám sát
+r-clbtt-cn,clb-truyen-thong,Chủ nhiệm,1,Chức danh nội bộ CLB Truyền thông theo dữ liệu trường
+r-clbtt-tv,clb-truyen-thong,Thành viên,99,Thành viên CLB Truyền thông
