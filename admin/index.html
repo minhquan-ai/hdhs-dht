@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#f5f5f0">
+  <title>Quản trị dữ liệu công khai · HĐHS DHT</title>
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <a class="brand" href="/" aria-label="Quay lại trang công khai"><span class="brand-mark">DHT</span><span><strong>HĐHS DHT</strong><small>Dữ liệu công khai</small></span></a>
+    <div class="header-right"><span class="read-only-label"><span class="dot"></span>Khách truy cập chỉ xem</span><button id="logout-button" class="quiet-button hidden" type="button">Đăng xuất</button><a class="back-link" href="/">← Về trang chính</a></div>
+  </header>
+  <main class="admin-main">
+    <section id="login-panel" class="login-panel">
+      <span class="eyebrow">KHU VỰC QUẢN TRỊ</span>
+      <h1>Sửa dữ liệu đang hiển thị trên web</h1>
+      <p>Chỉ tài khoản GitHub của chủ trang được tạo nháp. Khách truy cập luôn chỉ xem dữ liệu đã đăng.</p>
+      <button id="login-button" class="primary-button" type="button">Đăng nhập bằng GitHub <span>→</span></button>
+      <p id="login-message" class="message" role="status"></p>
+    </section>
+
+    <section id="editor-panel" class="hidden">
+      <div class="page-heading">
+        <div><span class="eyebrow">BẢN NHÁP RIÊNG · CHƯA HIỂN THỊ CÔNG KHAI</span><h1>Quản trị dữ liệu</h1><p id="signed-in-label">Đã đăng nhập</p></div>
+        <div class="pending-chip"><span id="pending-count">0</span> nháp chờ đăng</div>
+      </div>
+      <div class="notice"><strong>Lưu chỉ tạo nháp.</strong> Người xem chưa thấy thay đổi cho tới khi dữ liệu được đối chiếu, đưa vào nguồn ở localhost rồi triển khai.</div>
+      <div class="workspace">
+        <aside class="table-nav" id="table-nav" aria-label="Bảng dữ liệu"></aside>
+        <section class="table-area">
+          <div class="table-toolbar"><div><span class="eyebrow">BẢNG CÔNG KHAI</span><h2 id="table-title">Đơn vị</h2></div><button id="reload-table" class="secondary-button" type="button">Tải lại</button></div>
+          <div class="table-scroll"><table><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div>
+          <div id="table-empty" class="empty-message hidden">Không có dữ liệu trong bảng này.</div>
+        </section>
+      </div>
+      <section class="draft-section">
+        <div class="draft-heading"><div><span class="eyebrow">CHỈ BẠN NHÌN THẤY</span><h2>Nháp chưa đăng</h2></div><button id="reload-drafts" class="text-button" type="button">Tải lại</button></div>
+        <div id="drafts-list" class="drafts-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="row-dialog" class="row-dialog">
+    <form method="dialog" class="dialog-body">
+      <div class="dialog-heading"><div><span class="eyebrow">CHỈNH SỬA BẢN NHÁP</span><h2 id="row-title">Bản ghi</h2></div><button class="close-button" aria-label="Đóng">×</button></div>
+      <p id="row-path" class="path-label"></p>
+      <div id="row-fields" class="row-fields"></div>
+      <p id="row-message" class="message" role="status"></p>
+      <div class="dialog-actions"><button class="secondary-button" value="cancel">Hủy</button><button id="save-row" class="primary-button" type="button">Lưu nháp</button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="./admin.js" defer></script>
+</body>
+</html>
