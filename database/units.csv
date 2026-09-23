@@ -1,12 +1,12 @@
 id,parent_id,name,kind,sort_order,summary,status
-hdhs,,Hội đồng Học sinh DHT,root,1,Hệ thống đại diện và điều phối học sinh,Dự kiến
+truong-dht,,Trường THPT Đặng Huy Trứ,root,1,Cơ cấu phối hợp giữa nhà trường Đoàn trường và Hội đồng Học sinh,Hiện hành
+bgh,truong-dht,BGH,school-leadership,1,Ban Giám hiệu,Hiện hành
+doan-truong,truong-dht,Đoàn trường,school-organization,2,Tổ chức Đoàn của trường,Hiện hành
+hdhs,truong-dht,Hội đồng Học sinh DHT,student-council,3,Hệ thống đại diện và điều phối học sinh,Dự kiến
 thuong-truc,hdhs,Ban Thường trực,board,1,Điều hành chung HĐHS,Dự kiến
-dai-hoi,hdhs,Đại hội Đại diện Học sinh,assembly,2,Cơ chế đại diện các lớp,Dự kiến
-hoi-dong-clb,hdhs,Hội đồng CLB,council,3,Kết nối các CLB và Ban,Dự kiến
+dai-hoi,hdhs,Đại hội Đại diện Học sinh,assembly,2,41 lớp · mỗi lớp cử 1 đại diện,Dự kiến
+hoi-dong-clb,hdhs,Hội đồng CLB,council,3,Kết nối 6 câu lạc bộ hiện hành,Dự kiến
 hoi-dong-hoc-thuat,hdhs,Hội đồng Học thuật,council,4,Kết nối đội tuyển và hoạt động học thuật,Dự kiến
 ban-dai-dien,hdhs,Ban Đại diện Học sinh,department,5,Tổng hợp tiếng nói và kết nối đại diện lớp,Dự kiến
-ban-hoat-dong,hdhs,Ban Hoạt động & Sự kiện,department,6,Tổ chức hoạt động và dự án chung,Dự kiến
-ban-truyen-thong,hdhs,Ban Truyền thông,department,7,Truyền thông của HĐHS,Dự kiến
-ban-thong-tin,hdhs,Ban Thông tin & Hệ thống,department,8,Dữ liệu lịch biểu mẫu và hệ thống,Dự kiến
-ban-hau-can,hdhs,Ban Hậu cần,department,9,Nguồn lực thiết bị và hỗ trợ hoạt động,Dự kiến
-ban-giam-sat,hdhs,Ban Giám sát,department,10,Giám sát quy trình và tính minh bạch,Dự kiến
+ban-truyen-thong,hdhs,Ban Truyền thông,department,6,Một đơn vị Truyền thông duy nhất; tên CLB Truyền thông được giữ như bí danh lịch sử,Đang hoạt động
+ban-thong-tin,hdhs,Ban Thông tin & Hệ thống,department,7,Dữ liệu và hệ thống phục vụ HĐHS,Dự kiến

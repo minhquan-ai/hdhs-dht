@@ -1,10 +1,10 @@
 id,parent_id,name,kind,sort_order,summary,status
-hsg-toan,doi-hsg,Toán,academic-team,1,,Dự kiến
-hsg-ly,doi-hsg,Vật lí,academic-team,2,,Dự kiến
-hsg-hoa,doi-hsg,Hóa học,academic-team,3,,Dự kiến
-hsg-sinh,doi-hsg,Sinh học,academic-team,4,,Dự kiến
-hsg-van,doi-hsg,Ngữ văn,academic-team,5,,Dự kiến
-hsg-su,doi-hsg,Lịch sử,academic-team,6,,Dự kiến
-hsg-dia,doi-hsg,Địa lí,academic-team,7,,Dự kiến
-hsg-anh,doi-hsg,Tiếng Anh,academic-team,8,,Dự kiến
-hsg-tin,doi-hsg,Tin học,academic-team,9,,Dự kiến
+hsg-toan,hoi-dong-hoc-thuat,Toán,academic-team,1,,Dự kiến
+hsg-ly,hoi-dong-hoc-thuat,Vật lí,academic-team,2,,Dự kiến
+hsg-hoa,hoi-dong-hoc-thuat,Hóa học,academic-team,3,,Dự kiến
+hsg-sinh,hoi-dong-hoc-thuat,Sinh học,academic-team,4,,Dự kiến
+hsg-van,hoi-dong-hoc-thuat,Ngữ văn,academic-team,5,,Dự kiến
+hsg-su,hoi-dong-hoc-thuat,Lịch sử,academic-team,6,,Dự kiến
+hsg-dia,hoi-dong-hoc-thuat,Địa lí,academic-team,7,,Dự kiến
+hsg-anh,hoi-dong-hoc-thuat,Tiếng Anh,academic-team,8,,Dự kiến
+hsg-tin,hoi-dong-hoc-thuat,Tin học,academic-team,9,,Dự kiến

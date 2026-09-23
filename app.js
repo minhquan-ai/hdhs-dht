@@ -15,7 +15,7 @@
     roles: [],
     people: [],
     assignments: [],
-    focusUnitId: "hdhs",
+    focusUnitId: "truong-dht",
     focusRoleId: null
   };
 
@@ -102,7 +102,10 @@
 
   function labelKind(kind) {
     return ({
-      root:"Hội đồng",
+      root:"Trường",
+      "school-leadership":"BGH",
+      "school-organization":"Đoàn trường",
+      "student-council":"Hội đồng Học sinh",
       board:"Điều hành",
       assembly:"Đại diện",
       network:"Mạng lưới",
@@ -115,7 +118,8 @@
       "academic-hub":"Khối học thuật",
       "academic-team":"Đội tuyển",
       group:"Nhóm đại diện",
-      team:"Tổ"
+      team:"Tổ",
+      class:"Lớp"
     })[kind] || "Đơn vị";
   }
 
@@ -172,10 +176,8 @@
     state.focusRoleId = null;
     const routePath = pathToUnit(state.focusUnitId);
     routePath.forEach(u => expandedMapUnits.set(u.id, true));
-    if (routePath[1]) {
-      const kind = routePath[1].kind;
-      expandedMapUnits.set('group:' + (['board','assembly','council','department'].includes(kind) ? kind : 'other'), true);
-    }
+    const groupedNode = routePath.find(u => ['board','assembly','council','department'].includes(u.kind));
+    if (groupedNode) expandedMapUnits.set('group:' + groupedNode.kind, true);
     const sharedName = selectedRole ? 'role-' + selectedRole.id : 'unit-' + state.focusUnitId;
     const selectedLabel = app.querySelector(`[data-unit="${CSS.escape(state.focusUnitId)}"] [style*="view-transition-name"]`);
     if (selectedLabel && !selectedRole) selectedLabel.style.viewTransitionName = sharedName;
@@ -261,7 +263,7 @@
       const current = u.id === state.focusUnitId;
       const children = childrenOf(u.id);
       const expanded = expandedMapUnits.get(u.id) ?? path.has(u.id);
-      return `<li class="${path.has(u.id) ? 'map-path' : ''}"><div class="map-row" ${current ? 'aria-current="location"' : ''}><button type="button" data-map-unit="${esc(u.id)}" title="Đi đến ${esc(u.name)}"><span class="map-dot" aria-hidden="true"></span><span>${esc(u.name)}</span></button>${children.length ? `<button type="button" class="map-toggle" data-map-toggle="${esc(u.id)}" aria-expanded="${expanded}" aria-label="Mở hoặc thu nhánh ${esc(u.name)}"><span aria-hidden="true">${expanded ? '⌄' : '›'}</span></button>` : ''}</div>${expanded && children.length ? `<ul>${u.id === root.id ? groupedChildren(children) : children.map(branch).join('')}</ul>` : ''}</li>`;
+      return `<li class="${path.has(u.id) ? 'map-path' : ''}"><div class="map-row" ${current ? 'aria-current="location"' : ''}><button type="button" data-map-unit="${esc(u.id)}" title="Đi đến ${esc(u.name)}"><span class="map-dot" aria-hidden="true"></span><span>${esc(u.name)}</span></button>${children.length ? `<button type="button" class="map-toggle" data-map-toggle="${esc(u.id)}" aria-expanded="${expanded}" aria-label="Mở hoặc thu nhánh ${esc(u.name)}"><span aria-hidden="true">${expanded ? '⌄' : '›'}</span></button>` : ''}</div>${expanded && children.length ? `<ul>${u.id === 'hdhs' ? groupedChildren(children) : children.map(branch).join('')}</ul>` : ''}</li>`;
     }
     return `<nav class="location-map" aria-label="Bản đồ vị trí trong cơ cấu"><ul>${branch(root)}</ul></nav>`;
   }
@@ -276,10 +278,11 @@
     const members = currentRole ? assignmentsOfRole(currentRole.id) : assignmentsOfUnit(current.id);
     const root = !current.parent_id && !currentRole;
     const depth = pathToUnit(current.id).length;
-    const groupedContent = root ? [['board','Điều hành'],['assembly','Đại hội'],['council','Các Hội đồng'],['department','Các Ban chuyên môn'],['other','Đơn vị khác']].map(([kind,label]) => {
+    const hdhsRoot = current.id === 'hdhs' && !currentRole;
+    const groupedContent = hdhsRoot ? [['board','Điều hành'],['assembly','Đại hội'],['council','Các Hội đồng'],['department','Các Ban chuyên môn'],['other','Đơn vị khác']].map(([kind,label]) => {
       const units = children.filter(u => kind === 'other' ? !['board','assembly','council','department'].includes(u.kind) : u.kind === kind);
-      return units.length ? `<section class="content-group"><h2 class="content-group-title">${label}<span>${units.length}</span></h2><ul class="tree">${units.map(nodeHTML).join('')}</ul></section>` : '';
-    }).join('') : '';
+      return units.length ? '<section class="content-group"><h2 class="content-group-title">' + label + '<span>' + units.length + '</span></h2><ul class="tree">' + units.map(nodeHTML).join('') + '</ul></section>' : '';
+    }).join('') : root ? '<section class="content-group"><h2 class="content-group-title">Các đơn vị chính<span>' + children.length + '</span></h2><ul class="tree">' + children.map(nodeHTML).join('') + '</ul></section>' : '';
     app.innerHTML = `
       <div class="org-layout ${root ? 'org-layout--root' : ''} ${!children.length ? 'org-layout--leaf' : ''}">
         <section class="origin ${current.kind === 'board' ? 'origin--executive' : ''}">
@@ -294,7 +297,7 @@
         </section>
         <div class="org-content">
           ${!currentRole && rolesOf(current.id).length ? `<section class="role-branch" aria-label="Chức danh của ${esc(current.name)}"><h2>Chức danh</h2>${rolesHTML(current.id)}</section>` : ''}
-          ${root ? groupedContent : children.length ? `<ul class="tree" aria-label="Các đơn vị trực thuộc ${esc(current.name)}">${children.map(nodeHTML).join('')}</ul>` : ''}
+          ${(root || hdhsRoot) ? groupedContent : children.length ? `<ul class="tree" aria-label="Các đơn vị trực thuộc ${esc(current.name)}">${children.map(nodeHTML).join('')}</ul>` : ''}
           ${members.length ? `<section class="members-section"><div class="section-heading"><h2>${currentRole ? 'Người đảm nhiệm' : 'Thành viên'}</h2><span>${new Set(members.map(a => a.person_id)).size} người</span></div><div class="member-list">${members.map(memberHTML).join('')}</div></section>` : ''}
           ${!children.length && !members.length && (currentRole || !rolesOf(current.id).length) ? `<div class="empty"><span class="eyebrow">${currentRole ? 'Người đảm nhiệm' : 'Thông tin đơn vị'}</span><h2>${currentRole ? 'Chưa phân công' : 'Chưa có dữ liệu chi tiết'}</h2><p>${currentRole ? 'Vị trí này chưa có người đảm nhiệm trong dữ liệu hiện tại.' : 'Các đơn vị con và thành viên sẽ hiển thị khi có dữ liệu được xác nhận.'}</p></div>` : ''}
         </div>

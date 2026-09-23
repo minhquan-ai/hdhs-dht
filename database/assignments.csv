@@ -1,12 +1,12 @@
 id,person_id,unit_id,role_id,role_label,status,sort_order
 a-minh-quan-he-thong,p-minh-quan,ban-thong-tin,,Phụ trách hệ thống tạm thời,Tạm thời,1
-a-tt-ha-diem-quynh,p-ha-diem-quynh,clb-truyen-thong,r-clbtt-cn,Chủ nhiệm,Chính thức,1
-a-tt-my-hanh,p-my-hanh,clb-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,10
-a-tt-le-ha-my,p-le-ha-my,clb-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,11
-a-tt-tran-thien-ngan-anh,p-tran-thien-ngan-anh,clb-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,12
-a-tt-tran-thi-minh-tho,p-tran-thi-minh-tho,clb-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,13
-a-tt-truong-thi-thuy-hang,p-truong-thi-thuy-hang,clb-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,14
-a-tt-hoang-ngo-ngoc-tram,p-hoang-ngo-ngoc-tram,clb-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,15
+a-tt-ha-diem-quynh,p-ha-diem-quynh,ban-truyen-thong,r-clbtt-cn,Chủ nhiệm,Chính thức,1
+a-tt-my-hanh,p-my-hanh,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,10
+a-tt-le-ha-my,p-le-ha-my,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,11
+a-tt-tran-thien-ngan-anh,p-tran-thien-ngan-anh,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,12
+a-tt-tran-thi-minh-tho,p-tran-thi-minh-tho,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,13
+a-tt-truong-thi-thuy-hang,p-truong-thi-thuy-hang,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,14
+a-tt-hoang-ngo-ngoc-tram,p-hoang-ngo-ngoc-tram,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,15
 a-clb-ky-nang-duong-thi-my-hanh,p-duong-thi-my-hanh,clb-ky-nang,,Thành viên,Chính thức,50
 a-clb-ky-nang-dang-nhat-bao-tran,p-dang-nhat-bao-tran,clb-ky-nang,,Thành viên,Chính thức,50
 a-clb-ky-nang-nguyen-thi-tuyet-nhi,p-nguyen-thi-tuyet-nhi,clb-ky-nang,,Thành viên,Chính thức,50

@@ -2,4 +2,4 @@
 //
 // Từ V6, web chỉ đọc dữ liệu từ thư mục ./database/*.csv.
 // Không thêm hoặc sửa dữ liệu HĐHS trong file này.
-// Xem README.md và 03_DU_AN_HDHS_DHT_2026_2027/AGENTS.md.
+// Xem README.md và 03 - Dự án HĐHS DHT 2026–2027/AGENTS.md.

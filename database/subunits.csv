@@ -1,31 +1,52 @@
 id,parent_id,name,kind,sort_order,summary,status
-khoi-10,dai-hoi,Khối 10,group,1,Đại diện các lớp khối 10,Dự kiến
-khoi-11,dai-hoi,Khối 11,group,2,Đại diện các lớp khối 11,Dự kiến
-khoi-12,dai-hoi,Khối 12,group,3,Đại diện các lớp khối 12,Dự kiến
-clb-truyen-thong,hoi-dong-clb,CLB Truyền thông,club,1,7 thành viên hiện tại · 36 đăng ký casting,Đang hoạt động
-clb-nhay,hoi-dong-clb,CLB Nhảy,club,2,12 thành viên hiện tại,Đang hoạt động
-clb-van-nghe,hoi-dong-clb,CLB Văn nghệ,club,3,29 đăng ký casting,Đang tuyển
+khoi-10,dai-hoi,Khối 10,group,1,14 lớp · 14 đại diện,Dự kiến
+khoi-11,dai-hoi,Khối 11,group,2,13 lớp · 13 đại diện,Dự kiến
+khoi-12,dai-hoi,Khối 12,group,3,14 lớp · 14 đại diện,Dự kiến
+clb-nhay,hoi-dong-clb,The Flames Club,club,1,12 thành viên hiện tại · tích hợp Dancesport,Đang hoạt động
+clb-van-nghe,hoi-dong-clb,CLB Văn nghệ,club,2,29 đăng ký casting,Đang tuyển
+clb-am-nhac,hoi-dong-clb,CLB Âm nhạc,club,3,CLB độc lập song song với CLB Văn nghệ,Đang hoạt động
 clb-ky-nang,hoi-dong-clb,CLB Kỹ năng Đoàn - Hội,club,4,18 thành viên hiện tại · 26 đăng ký casting,Đang hoạt động
-ban-trat-tu,hoi-dong-clb,Ban Trật tự - Nề nếp,school-board,5,21 đăng ký casting,Đang tuyển
-clb-tin-hoc,hoi-dong-clb,CLB Tin học,club,6,Thông tin sẽ tiếp tục xác minh,Chưa xác minh
-doi-hsg,hoi-dong-hoc-thuat,Đội tuyển Học sinh giỏi,academic,1,Hệ thống đội tuyển học thuật,Dự kiến
-khkt,hoi-dong-hoc-thuat,Khoa học kỹ thuật,academic,2,Dự án nghiên cứu và thi khoa học kỹ thuật,Dự kiến
-hoc-thuat-lien-mon,hoi-dong-hoc-thuat,Nhóm học thuật liên môn,academic,3,Hoạt động học thuật phối hợp nhiều lĩnh vực,Dự kiến
-dd-khoi10,ban-dai-dien,Đại diện Khối 10,team,1,,Dự kiến
-dd-khoi11,ban-dai-dien,Đại diện Khối 11,team,2,,Dự kiến
-dd-khoi12,ban-dai-dien,Đại diện Khối 12,team,3,,Dự kiến
-hd-noi-dung,ban-hoat-dong,Nhóm Nội dung hoạt động,team,1,,Dự kiến
-hd-dieu-phoi,ban-hoat-dong,Nhóm Điều phối sự kiện,team,2,,Dự kiến
-hd-du-an,ban-hoat-dong,Nhóm Phát triển dự án,team,3,,Dự kiến
-tt-noi-dung,ban-truyen-thong,Nhóm Nội dung,team,1,,Dự kiến
-tt-thiet-ke,ban-truyen-thong,Nhóm Thiết kế,team,2,,Dự kiến
-tt-hinh-anh,ban-truyen-thong,Nhóm Hình ảnh & Video,team,3,,Dự kiến
-ht-du-lieu,ban-thong-tin,Nhóm Dữ liệu,team,1,,Dự kiến
-ht-he-thong,ban-thong-tin,Nhóm Hệ thống,team,2,,Dự kiến
-ht-lich-bieu-mau,ban-thong-tin,Nhóm Lịch & Biểu mẫu,team,3,,Dự kiến
-hc-thiet-bi,ban-hau-can,Nhóm Thiết bị & Vật dụng,team,1,,Dự kiến
-hc-khong-gian,ban-hau-can,Nhóm Không gian & Bố trí,team,2,,Dự kiến
-hc-nhan-luc,ban-hau-can,Nhóm Nhân lực hỗ trợ,team,3,,Dự kiến
-gs-quy-trinh,ban-giam-sat,Nhóm Quy trình & Tuân thủ,team,1,,Dự kiến
-gs-minh-bach,ban-giam-sat,Nhóm Minh bạch & Hồ sơ,team,2,,Dự kiến
-gs-phan-hoi,ban-giam-sat,Nhóm Phản hồi nội bộ,team,3,,Dự kiến
+clb-tin-hoc,hoi-dong-clb,CLB Tin học,club,5,Thông tin sẽ tiếp tục xác minh,Chưa xác minh
+clb-cau-long,hoi-dong-clb,CLB Cầu lông,club,6,Thông tin sẽ tiếp tục xác minh,Chưa xác minh
+ban-trat-tu,doan-truong,Ban Trật tự - Nề nếp,school-board,1,21 đăng ký casting,Đang tuyển
+lop-10-1,khoi-10,Lớp 10/1,class,1,1 đại diện lớp,Dự kiến
+lop-10-2,khoi-10,Lớp 10/2,class,2,1 đại diện lớp,Dự kiến
+lop-10-3,khoi-10,Lớp 10/3,class,3,1 đại diện lớp,Dự kiến
+lop-10-4,khoi-10,Lớp 10/4,class,4,1 đại diện lớp,Dự kiến
+lop-10-5,khoi-10,Lớp 10/5,class,5,1 đại diện lớp,Dự kiến
+lop-10-6,khoi-10,Lớp 10/6,class,6,1 đại diện lớp,Dự kiến
+lop-10-7,khoi-10,Lớp 10/7,class,7,1 đại diện lớp,Dự kiến
+lop-10-8,khoi-10,Lớp 10/8,class,8,1 đại diện lớp,Dự kiến
+lop-10-9,khoi-10,Lớp 10/9,class,9,1 đại diện lớp,Dự kiến
+lop-10-10,khoi-10,Lớp 10/10,class,10,1 đại diện lớp,Dự kiến
+lop-10-11,khoi-10,Lớp 10/11,class,11,1 đại diện lớp,Dự kiến
+lop-10-12,khoi-10,Lớp 10/12,class,12,1 đại diện lớp,Dự kiến
+lop-10-13,khoi-10,Lớp 10/13,class,13,1 đại diện lớp,Dự kiến
+lop-10-14,khoi-10,Lớp 10/14,class,14,1 đại diện lớp,Dự kiến
+lop-11-1,khoi-11,Lớp 11/1,class,1,1 đại diện lớp,Dự kiến
+lop-11-2,khoi-11,Lớp 11/2,class,2,1 đại diện lớp,Dự kiến
+lop-11-3,khoi-11,Lớp 11/3,class,3,1 đại diện lớp,Dự kiến
+lop-11-4,khoi-11,Lớp 11/4,class,4,1 đại diện lớp,Dự kiến
+lop-11-5,khoi-11,Lớp 11/5,class,5,1 đại diện lớp,Dự kiến
+lop-11-6,khoi-11,Lớp 11/6,class,6,1 đại diện lớp,Dự kiến
+lop-11-7,khoi-11,Lớp 11/7,class,7,1 đại diện lớp,Dự kiến
+lop-11-8,khoi-11,Lớp 11/8,class,8,1 đại diện lớp,Dự kiến
+lop-11-9,khoi-11,Lớp 11/9,class,9,1 đại diện lớp,Dự kiến
+lop-11-10,khoi-11,Lớp 11/10,class,10,1 đại diện lớp,Dự kiến
+lop-11-11,khoi-11,Lớp 11/11,class,11,1 đại diện lớp,Dự kiến
+lop-11-12,khoi-11,Lớp 11/12,class,12,1 đại diện lớp,Dự kiến
+lop-11-13,khoi-11,Lớp 11/13,class,13,1 đại diện lớp,Dự kiến
+lop-12-1,khoi-12,Lớp 12/1,class,1,1 đại diện lớp,Dự kiến
+lop-12-2,khoi-12,Lớp 12/2,class,2,1 đại diện lớp,Dự kiến
+lop-12-3,khoi-12,Lớp 12/3,class,3,1 đại diện lớp,Dự kiến
+lop-12-4,khoi-12,Lớp 12/4,class,4,1 đại diện lớp,Dự kiến
+lop-12-5,khoi-12,Lớp 12/5,class,5,1 đại diện lớp,Dự kiến
+lop-12-6,khoi-12,Lớp 12/6,class,6,1 đại diện lớp,Dự kiến
+lop-12-7,khoi-12,Lớp 12/7,class,7,1 đại diện lớp,Dự kiến
+lop-12-8,khoi-12,Lớp 12/8,class,8,1 đại diện lớp,Dự kiến
+lop-12-9,khoi-12,Lớp 12/9,class,9,1 đại diện lớp,Dự kiến
+lop-12-10,khoi-12,Lớp 12/10,class,10,1 đại diện lớp,Dự kiến
+lop-12-11,khoi-12,Lớp 12/11,class,11,1 đại diện lớp,Dự kiến
+lop-12-12,khoi-12,Lớp 12/12,class,12,1 đại diện lớp,Dự kiến
+lop-12-13,khoi-12,Lớp 12/13,class,13,1 đại diện lớp,Dự kiến
+lop-12-14,khoi-12,Lớp 12/14,class,14,1 đại diện lớp,Dự kiến
