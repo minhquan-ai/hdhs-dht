@@ -56,8 +56,14 @@ Ban Hoạt động & Sự kiện, Ban Hậu cần và Ban Giám sát đang tạm
 
 Trường → BGH / Đoàn trường / HĐHS → đơn vị → chức danh → thành viên.
 
-Khi dữ liệu CSV thay đổi, tải lại trang để xem dữ liệu mới.
+Khách truy cập chỉ xem dữ liệu đã công khai. Trang /admin cho phép duy nhất chủ trang đăng nhập bằng GitHub để tạo nháp trên sáu bảng công khai. Lưu nháp không đổi nội dung công khai; nháp chỉ được đăng sau khi đối chiếu với nguồn trong 05, chạy kiểm tra dữ liệu, xuất bản an toàn rồi triển khai trên Vercel.
+
+## Dữ liệu và quyền riêng tư
+
+- Danh sách casting, số điện thoại, ngày sinh và ghi chú nội bộ không được đưa vào cơ sở dữ liệu nháp hoặc web công khai.
+- Bản công khai được xuất từ `05 - Ứng dụng MVP/app/database` qua `tools/hdhs_prepare_public.py`; không sửa trực tiếp CSV trong thư mục `09`.
+- Dữ liệu admin chỉ gồm các trường cho phép của sáu CSV công khai. Mọi API ghi nháp xác thực GitHub ID phía máy chủ.
 
 ## Giai đoạn hiện tại
 
-Đây vẫn là bản nháp trực quan hóa. Quyền hạn chính thức của HĐHS phụ thuộc vào nhà trường và Đoàn trường.
+Web vẫn là bản nháp trực quan hóa cơ cấu. Quyền hạn chính thức của HĐHS phụ thuộc vào nhà trường và Đoàn trường.
