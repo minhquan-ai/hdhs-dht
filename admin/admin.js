@@ -77,7 +77,8 @@
   async function checkSession() {
     try {
       const session = await api("/api/auth/session");
-      if (!session.configured) { setMode(false, "Chức năng đăng nhập đang chờ cấu hình OAuth và cơ sở dữ liệu."); return; }
+      if (!session.configured) { setMode(false, "Cần cấu hình GitHub OAuth để bật đăng nhập chủ sở hữu."); $("#login-button").disabled = true; return; }
+      $("#login-button").disabled = false;
       if (!session.authenticated) { setMode(false, ""); return; }
       state.user = session.user;
       setMode(true);
