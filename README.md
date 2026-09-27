@@ -2,7 +2,7 @@
 
 ## Mục đích
 
-Phần mềm hiện chỉ dùng để trực quan hóa cơ cấu ngoài đời.
+Pha 1 web hiển thị sơ đồ cơ cấu và một trang Danh bạ nhân sự riêng. Khu vực quản trị chủ sở hữu hỗ trợ tạo/sửa nháp hồ sơ người và phân công, hoặc gỡ phân công.
 
 Không dùng bản này để quyết định cơ cấu. Cơ cấu đời thực là nguồn chính; phần mềm chỉ phản ánh dữ liệu đã được thống nhất.
 
@@ -56,8 +56,14 @@ Ban Hoạt động & Sự kiện, Ban Hậu cần và Ban Giám sát đang tạm
 
 Trường → BGH / Đoàn trường / HĐHS → đơn vị → chức danh → thành viên.
 
-Khi dữ liệu CSV thay đổi, tải lại trang để xem dữ liệu mới.
+Trang /people/ là Danh bạ nhân sự riêng, có tìm kiếm và lọc theo đơn vị/chức danh; chỉ hiện người còn ít nhất một phân công công khai. Trang /admin chỉ dành cho chủ trang đã đăng nhập GitHub; giao diện cho phép tạo/sửa nháp người, thêm phân công và tạo nháp gỡ một hoặc tất cả phân công. Gỡ phân công không xóa cứng hồ sơ người; hết phân công thì ẩn khỏi danh bạ. Lưu nháp không đổi nội dung public. Chủ dự án phải đối chiếu với nguồn trong 05, kiểm tra dữ liệu, cập nhật CSV master, xuất dữ liệu và triển khai trên Vercel.
+
+## Dữ liệu và quyền riêng tư
+
+- Danh sách casting, số điện thoại, ngày sinh và ghi chú nội bộ không được đưa vào cơ sở dữ liệu nháp hoặc web công khai.
+- Bản công khai được xuất từ `05 - Ứng dụng MVP/app/database` qua `tools/hdhs_prepare_public.py`; không sửa trực tiếp CSV trong thư mục `09`.
+- Dữ liệu admin chỉ gồm các trường cho phép của sáu CSV công khai. Mọi API ghi nháp xác thực GitHub ID phía máy chủ.
 
 ## Giai đoạn hiện tại
 
-Đây vẫn là bản nháp trực quan hóa. Quyền hạn chính thức của HĐHS phụ thuộc vào nhà trường và Đoàn trường.
+Sơ đồ, Danh bạ riêng và giao diện admin responsive cho máy tính/điện thoại đã được viết trong workspace local. Thay đổi chỉ là nháp; chưa chạy kiểm thử hay triển khai. Dữ liệu công khai vẫn phải qua đối chiếu nguồn. Quyền hạn chính thức của HĐHS phụ thuộc vào nhà trường và Đoàn trường.
