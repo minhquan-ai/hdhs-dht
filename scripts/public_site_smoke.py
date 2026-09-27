@@ -65,6 +65,14 @@ def main() -> int:
         if not (ROOT / rel).is_file():
             errors.append(f"thiếu route/asset: {rel}")
 
+    people_html = (ROOT / "people/index.html").read_text(encoding="utf-8")
+    people_js = (ROOT / "people/people.js").read_text(encoding="utf-8")
+    for filter_id in ("unit-filter", "class-filter", "role-filter"):
+        if f'id="{filter_id}"' not in people_html:
+            errors.append(f"danh bạ thiếu bộ lọc {filter_id}")
+        if f'$("#{filter_id}")' not in people_js:
+            errors.append(f"people.js chưa xử lý bộ lọc {filter_id}")
+
     js_files = [p for p in ROOT.rglob("*") if p.is_file() and p.suffix in {".js", ".mjs"}]
     for path in js_files:
         result = subprocess.run(["node", "--check", str(path)], capture_output=True, text=True)

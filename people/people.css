@@ -176,7 +176,7 @@
 
 .people-filters {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, .65fr) minmax(0, 1fr) auto;
   align-items: end;
   gap: 14px;
   margin: 22px 0 54px;

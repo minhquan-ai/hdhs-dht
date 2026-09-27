@@ -67,6 +67,7 @@
 
   function fillFilters(unitById, roleById) {
     const unitFilter = $("#unit-filter");
+    const classFilter = $("#class-filter");
     const roleFilter = $("#role-filter");
     const unitIds = [...new Set(state.assignments.map(item => item.unit_id).filter(Boolean))];
     const units = unitIds
@@ -82,6 +83,10 @@
 
     unitFilter.innerHTML = '<option value="">Tất cả đơn vị</option>' +
       units.map(item => '<option value="' + esc(item.id) + '">' + esc(item.name) + "</option>").join("");
+    const classes = [...new Set(state.people.map(item => item.class_name).filter(Boolean))]
+      .sort((a, b) => collator.compare(a, b));
+    classFilter.innerHTML = '<option value="">Tất cả lớp</option>' +
+      classes.map(value => '<option value="' + esc(value) + '">Lớp ' + esc(value) + "</option>").join("");
     roleFilter.innerHTML = '<option value="">Tất cả chức danh</option>' +
       [...roleOptions.entries()].sort((a, b) => collator.compare(a[1], b[1]))
         .map(([key, title]) => '<option value="' + esc(key) + '">' + esc(title) + "</option>").join("");
@@ -90,6 +95,7 @@
   function render() {
     const query = $("#people-query").value.trim().toLocaleLowerCase("vi");
     const selectedUnit = $("#unit-filter").value;
+    const selectedClass = $("#class-filter").value;
     const selectedRole = $("#role-filter").value;
     const unitById = new Map(state.units.map(item => [item.id, item]));
     const roleById = new Map(state.roles.map(item => [item.id, item]));
@@ -110,7 +116,9 @@
         const haystack = (person.name + " " + (person.class_name || "")).toLocaleLowerCase("vi");
         return { person, assignments: matches, haystack };
       })
-      .filter(item => item.assignments.length && (!query || item.haystack.includes(query)))
+      .filter(item => item.assignments.length &&
+        (!selectedClass || item.person.class_name === selectedClass) &&
+        (!query || item.haystack.includes(query)))
       .sort((a, b) => collator.compare(a.person.name, b.person.name));
 
     const count = results.length;
@@ -161,6 +169,7 @@
     state.visibleCount = 60;
     $("#people-query").value = "";
     $("#unit-filter").value = "";
+    $("#class-filter").value = "";
     $("#role-filter").value = "";
     render();
   }
@@ -169,6 +178,7 @@
     $("#people-search-form").addEventListener("submit", event => event.preventDefault());
     $("#people-query").addEventListener("input", () => { state.visibleCount = 60; render(); });
     $("#unit-filter").addEventListener("change", () => { state.visibleCount = 60; render(); });
+    $("#class-filter").addEventListener("change", () => { state.visibleCount = 60; render(); });
     $("#role-filter").addEventListener("change", () => { state.visibleCount = 60; render(); });
     $("#people-more").addEventListener("click", () => { state.visibleCount += 60; render(); });
     $("#clear-search").addEventListener("click", () => {
