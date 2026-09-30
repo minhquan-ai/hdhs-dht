@@ -205,7 +205,7 @@
     if (!roles.length) return '';
     const visible = compact ? roles.slice(0, 1) : roles;
     return `<div class="roles ${compact ? 'roles--compact' : ''}">${visible.map(r => {
-      const names = assignmentsOfRole(r.id).map(a => person(a.person_id)?.name).filter(Boolean);
+      const names = [...new Set(assignmentsOfRole(r.id).map(a => person(a.person_id)?.name).filter(Boolean))];
       return `<button class="role-link" data-role="${esc(r.id)}"><span class="role-title">${esc(r.title)}</span><strong class="${names.length ? '' : 'unassigned'}">${esc(names.join(' · ') || 'Chưa phân công')}</strong><span class="link-arrow" aria-hidden="true">↗</span></button>`;
     }).join('')}${compact && roles.length > 1 ? `<button class="more-roles" data-unit="${esc(id)}">Xem ${roles.length} chức danh <span aria-hidden="true">→</span></button>` : ''}</div>`;
   }

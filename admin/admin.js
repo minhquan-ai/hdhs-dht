@@ -242,7 +242,7 @@
       ? "Một hồ sơ cho mỗi người. Thêm ít nhất một phân công để hiện trong danh bạ."
       : state.table === "assignments.csv"
         ? "Gỡ phân công sẽ ẩn người khỏi đơn vị; hồ sơ nguồn vẫn được giữ."
-        : "Sửa cơ cấu tạo nháp; chỉ bản đã đối chiếu mới được xuất bản.";
+        : "Dữ liệu cơ cấu chỉ để tham khảo; cập nhật tại CSV nguồn.";
   }
 
   async function loadTable() {
@@ -279,7 +279,7 @@
       if (draft?.operation === "remove") return "";
       return edit + '<button type="button" class="action-remove" data-remove-assignment="' + index + '">Gỡ phân công</button>';
     }
-    return edit;
+    return "";
   }
 
   function renderTable() {
@@ -289,7 +289,9 @@
       fields.map(field => "<th scope=\"col\">" + esc(LABELS[field] || field) + "</th>").join("") +
       "<th scope=\"col\"><span class=\"sr-only\">Thao tác</span></th></tr>";
     $("#table-body").innerHTML = state.rows.map((row, index) => {
-      const draft = getDraft(table, rowKey(row));
+      const draft = table === "people.csv" || table === "assignments.csv"
+        ? getDraft(table, rowKey(row))
+        : null;
       const badge = draft
         ? '<span class="table-row-badge ' + (draft.operation === "remove" ? "table-row-badge--remove" : "") + '">' +
           (draft.operation === "remove" ? "Chờ gỡ" : "Có nháp") + "</span>"
@@ -662,7 +664,8 @@
           const operation = draft.operation || "update";
           const label = draftOperationLabel(draft);
           const typeClass = operation === "remove" ? "draft-type--remove" : "";
-          const openButton = operation === "remove"
+          const editable = draft.table_name === "people.csv" || draft.table_name === "assignments.csv";
+          const openButton = operation === "remove" || !editable
             ? ""
             : '<button class="secondary-button" data-reopen="' + esc(draft.id) + '">Mở</button>';
           return '<article class="draft-card">' +
@@ -688,6 +691,10 @@
     if (!draft) return;
     if (draft.operation === "remove") {
       toast("Đây là nháp gỡ. Dùng Bỏ nháp để hủy thao tác này.");
+      return;
+    }
+    if (draft.table_name !== "people.csv" && draft.table_name !== "assignments.csv") {
+      toast("Pha 1 chỉ cho phép sửa nháp hồ sơ người và phân công.", "error");
       return;
     }
     state.table = draft.table_name;

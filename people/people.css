@@ -542,7 +542,7 @@
   .people-filters {
     grid-template-columns: 1fr;
     gap: 10px;
-    margin: 17px 0 34px;
+    margin: 17px 0 8px;
   }
 
   .filter-field select {
