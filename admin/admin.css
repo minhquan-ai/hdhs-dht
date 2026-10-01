@@ -1,7 +1,7 @@
 :root {
   --ink:#1e2823;
   --soft:#63716a;
-  --faint:#8b978f;
+  --faint:#64736a;
   --paper:#f5f5f0;
   --surface:#fffefa;
   --line:#e2e7df;
@@ -352,4 +352,28 @@ td button.action-remove:hover { background:#fff2f0; }
 }
 @media (prefers-reduced-motion: reduce) {
   *,*::before,*::after { transition-duration:.01ms!important; animation-duration:.01ms!important; }
+}
+.admin-login-header { gap:12px; }
+.admin-login-content { display:grid; justify-items:start; gap:12px; }
+.admin-login-content > p { margin:0; }
+.owner-badge { height:auto; min-height:24px; border-color:#cfd9ce; color:var(--green-dark); }
+
+/* UI polish */
+body { background:transparent; }
+.admin-header { background:rgba(255,253,248,.84); backdrop-filter:blur(16px); border-bottom-color:rgba(31,74,57,.12); }
+.admin-main { width:min(1180px,calc(100% - 44px)); padding:48px 0 96px; }
+.login-panel { max-width:680px; padding:40px; border-radius:28px; border-color:rgba(31,74,57,.13); background:radial-gradient(circle at 92% 12%,rgba(93,181,138,.17),transparent 18rem),linear-gradient(145deg,#fff,#fbfcf9); box-shadow:0 22px 56px rgba(25,55,43,.08); }
+.login-panel h1 { font-family:"Geist Variable",system-ui,sans-serif; font-weight:720; letter-spacing:-.045em; font-size:clamp(34px,5vw,48px); }
+.primary-button { min-height:50px; border-radius:14px; box-shadow:0 8px 20px rgba(31,106,79,.14); }
+.table-tab { border-radius:13px; }
+.table-area { border-radius:22px; background:rgba(255,255,255,.78); box-shadow:0 10px 30px rgba(25,55,43,.045); }
+.table-scroll { border-radius:16px; background:#fff; }
+.notice { border-radius:14px; }
+.draft-card { border-radius:15px; background:rgba(255,255,255,.8); }
+.row-dialog { border-radius:22px; }
+@media (max-width:760px) {
+  .admin-main { width:min(100% - 20px,720px); padding:18px 0 calc(104px + env(safe-area-inset-bottom)); }
+  .login-panel { margin-top:4vh; padding:26px 20px; border-radius:22px; }
+  .table-area { border-radius:18px; }
+  tbody tr { border-radius:14px; box-shadow:0 7px 20px rgba(25,55,43,.035); }
 }

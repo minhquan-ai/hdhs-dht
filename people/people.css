@@ -143,8 +143,27 @@
   font-size: 17px;
 }
 
+.search-field input[data-slot="input"] {
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.search-field input[data-slot="input"] {
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.search-field input:focus,
+.search-field input:focus-visible {
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+}
+
 .search-field input::placeholder {
-  color: #77837c;
+  color: var(--muted);
   opacity: 1;
 }
 
@@ -174,12 +193,27 @@
   font-size: 12px;
 }
 
+.filter-panel {
+  margin: 22px 0 54px;
+}
+
+.filter-summary {
+  display: none;
+}
+
 .people-filters {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(150px, .65fr) minmax(0, 1fr) auto;
   align-items: end;
   gap: 14px;
-  margin: 22px 0 54px;
+  margin: 0;
+}
+
+.filter-count {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
 }
 
 .filter-field {
@@ -472,7 +506,7 @@
     grid-template-columns: 1fr;
   }
 
-  .people-filters {
+  .filter-panel {
     margin-bottom: 42px;
   }
 }
@@ -539,10 +573,77 @@
     font-size: 16px;
   }
 
+  .filter-panel {
+    overflow: hidden;
+    margin: 17px 0 34px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface);
+  }
+
+  .filter-summary {
+    display: flex;
+    min-height: 58px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 9px 13px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .filter-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .filter-summary:focus-visible {
+    outline: 3px solid #84b69a;
+    outline-offset: -3px;
+  }
+
+  .filter-summary-copy strong,
+  .filter-summary-copy small {
+    display: block;
+  }
+
+  .filter-summary-copy {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .filter-summary-copy strong {
+    color: var(--ink);
+    font-size: 13px;
+  }
+
+  .filter-summary-copy small {
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: 11px;
+  }
+
+  .filter-summary::after {
+    content: "⌄";
+    color: var(--green);
+    font-size: 18px;
+    transition: transform 160ms ease;
+  }
+
+  .filter-panel[open] .filter-summary::after {
+    transform: rotate(180deg);
+  }
+
+  .filter-count {
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: var(--tint);
+    font-size: 11px;
+  }
+
   .people-filters {
     grid-template-columns: 1fr;
-    gap: 10px;
-    margin: 17px 0 8px;
+    gap: 12px;
+    padding: 0 13px 14px;
   }
 
   .filter-field select {
@@ -610,4 +711,44 @@
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
   }
+}
+
+/* UI polish */
+.people-page { background:transparent; }
+.people-topbar { background:rgba(255,253,248,.82); backdrop-filter:blur(16px); border-bottom-color:rgba(31,74,57,.12); }
+.people-stage { width:min(1180px,100%); margin-inline:auto; padding-top:56px; }
+.people-intro { position:relative; overflow:hidden; padding:34px 36px; border:1px solid rgba(31,74,57,.13); border-radius:28px; background:radial-gradient(circle at 88% 18%,rgba(93,181,138,.17),transparent 21rem),linear-gradient(135deg,rgba(255,255,255,.96),rgba(249,250,246,.9)); box-shadow:0 22px 56px rgba(25,55,43,.075); }
+.people-intro::after { content:""; position:absolute; width:180px; height:180px; right:-64px; bottom:-92px; border:1px solid rgba(31,106,79,.12); border-radius:50%; }
+.people-intro h1 { max-width:9ch; letter-spacing:-.055em; line-height:.96; }
+.people-intro p { max-width:620px; }
+.people-count { padding:18px 20px; border:1px solid rgba(31,106,79,.13); border-radius:20px; background:rgba(255,255,255,.78); box-shadow:0 12px 28px rgba(25,55,43,.055); }
+.people-search { margin-top:22px; padding:12px; border:1px solid rgba(31,74,57,.12); border-radius:20px; background:rgba(255,255,255,.72); box-shadow:0 10px 30px rgba(25,55,43,.05); }
+.search-field { border:0; border-radius:15px; background:#fff; box-shadow:inset 0 0 0 1px rgba(31,74,57,.10); }
+.search-field:focus-within { box-shadow:inset 0 0 0 2px rgba(47,138,104,.32),0 0 0 4px rgba(47,138,104,.08); }
+.filter-panel { margin-top:16px; }
+.people-filters { gap:12px; padding:14px; border:1px solid rgba(31,74,57,.12); border-radius:18px; background:rgba(255,255,255,.62); }
+.filter-field select { min-height:50px; border-radius:13px; background:#fff; }
+.reset-filters { min-height:50px; padding-inline:16px; border-radius:13px; font-weight:650; }
+.people-results-heading { padding-inline:4px; }
+.people-results { gap:12px; }
+.person-result { margin:0; overflow:hidden; border:1px solid rgba(31,74,57,.12); border-radius:18px; background:rgba(255,255,255,.76); box-shadow:0 8px 24px rgba(25,55,43,.04); transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease; }
+.person-result:hover { transform:translateY(-1px); border-color:rgba(31,106,79,.22); box-shadow:0 14px 34px rgba(25,55,43,.075); }
+.person-result summary { min-height:88px; padding:16px 18px; }
+.person-avatar { width:48px; height:48px; border:1px solid rgba(31,106,79,.10); border-radius:15px; background:linear-gradient(135deg,#dff3e9,#eef7f1); }
+.person-details { padding:0 18px 18px 82px; }
+.person-assignment { border-color:rgba(31,74,57,.10); border-radius:14px; background:#fff; }
+.people-more { min-height:48px; border-radius:14px; }
+
+@media (max-width:700px) {
+  .people-stage { padding:18px 10px calc(104px + env(safe-area-inset-bottom)); }
+  .people-intro { padding:24px 20px; border-radius:22px; }
+  .people-intro h1 { font-size:clamp(40px,14vw,60px); max-width:8ch; }
+  .people-count { display:flex; align-items:baseline; justify-content:space-between; padding:14px 16px; border-radius:16px; }
+  .people-search { margin-top:14px; padding:9px; border-radius:16px; }
+  .filter-panel { margin:12px 0 28px; border-radius:16px; background:rgba(255,255,255,.74); }
+  .people-filters { border:0; border-radius:0; padding:0 12px 12px; background:transparent; }
+  .person-result { border-radius:16px; }
+  .person-result summary { min-height:80px; padding:14px; }
+  .person-avatar { width:42px; height:42px; border-radius:13px; }
+  .person-details { padding:0 14px 14px; }
 }

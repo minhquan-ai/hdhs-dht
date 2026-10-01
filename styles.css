@@ -1369,3 +1369,30 @@ body:has(dialog[open]) { overflow:hidden; }
   .people-page-link { gap:6px; padding:0 10px; font-size:11px; }
   .breadcrumbs { font-size:10px; }
 }
+
+/* UI polish */
+body { background:radial-gradient(circle at 8% 8%,rgba(94,183,140,.11),transparent 28rem),linear-gradient(180deg,#fbfaf6 0%,#f4f2ec 100%); }
+.topbar { border-bottom-color:rgba(31,74,57,.14); background:rgba(255,253,248,.78); backdrop-filter:blur(14px); }
+.stage { max-width:1560px; }
+.origin-content { padding:24px; border:1px solid rgba(31,74,57,.13); border-top:3px solid var(--ink); border-radius:0 0 22px 22px; background:rgba(255,255,255,.70); box-shadow:0 12px 32px rgba(25,55,43,.045); }
+.origin h1 { font-family:"Geist Variable",system-ui,sans-serif; font-weight:720; letter-spacing:-.045em; }
+.tree { border-left-color:rgba(31,74,57,.18); }
+.unit-node { padding:20px; border:1px solid rgba(31,74,57,.11); border-top-color:rgba(31,74,57,.16); border-radius:18px; background:rgba(255,255,255,.66); box-shadow:0 8px 24px rgba(25,55,43,.035); }
+.branch--executive .unit-node { border:1px solid rgba(31,106,79,.18); border-top:4px solid var(--green); border-radius:20px; background:radial-gradient(circle at 92% 10%,rgba(93,181,138,.16),transparent 18rem),linear-gradient(135deg,#edf7f1,#f8fbf7); }
+.unit-open { padding-right:34px; }
+.unit-name { letter-spacing:-.025em; }
+.role-link { border-bottom-color:rgba(31,74,57,.10); }
+.role-link:hover { background:rgba(223,243,233,.5); }
+.member { padding-inline:14px; border:1px solid transparent; border-bottom-color:rgba(31,74,57,.10); border-radius:14px; }
+.member:hover { border-color:rgba(31,74,57,.10); background:rgba(255,255,255,.68); }
+.avatar { width:40px; height:40px; border-radius:13px; background:linear-gradient(135deg,#dff3e9,#eef7f1); }
+dialog { border-radius:22px; background:#fffdf8; box-shadow:0 28px 80px rgba(20,43,33,.2); }
+
+@media(max-width:700px) {
+  .topbar { margin:0 10px; padding-inline:10px; border-radius:0 0 18px 18px; }
+  .stage { padding:18px 10px 100px; }
+  .origin-content { padding:20px; border-radius:0 0 18px 18px; }
+  .org-content { margin-top:24px; }
+  .unit-node { padding:16px; border-radius:16px; }
+  .branch--executive .unit-node { border-radius:18px; }
+}
