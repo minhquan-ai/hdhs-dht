@@ -3,33 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f7f8f5">
+  <meta name="theme-color" content="#fbfbfa">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <title>Sơ đồ HĐHS DHT</title>
+  <title>Cơ cấu Tổ chức · Hội đồng Học sinh THPT Đặng Huy Trứ</title>
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/index.css">
+  <link rel="stylesheet" href="./src/brand.css">
 </head>
-<body>
-  <a class="skip-link" href="#app">Đến sơ đồ</a>
-  <header class="topbar">
-    <button id="homeButton" class="brand" type="button" aria-label="Về trang chủ HĐHS">
-      <span class="brand-mark" aria-hidden="true">DHT<span> / </span></span>
-      <span class="brand-copy"><strong>Hội đồng Học sinh</strong><small>THPT Đặng Huy Trứ</small></span>
-    </button>
-    <div class="navigation"><button id="backButton" class="back-button" type="button" aria-label="Quay lại cấp trên">← <span>Quay lại</span></button><nav aria-label="Đường dẫn cấp bậc"><ol id="breadcrumbs" class="breadcrumbs"></ol></nav></div>
-    <a class="people-page-link" href="./people/" aria-label="Mở danh bạ nhân sự">Danh bạ nhân sự <span aria-hidden="true">→</span></a>
-  </header>
-  <main id="app" class="stage" tabindex="-1" aria-live="polite"><div class="loading">Đang tải sơ đồ…</div></main>
-  <footer class="footer"><span>HĐHS / THPT Đặng Huy Trứ</span><span>Bản nháp trực quan hóa · Cơ cấu dự kiến</span></footer>
-  <dialog id="personDialog" aria-labelledby="personTitle"><button class="dialog-close" aria-label="Đóng thông tin thành viên">×</button><div class="person-content"></div></dialog>
-  <dialog id="roleDialog" aria-labelledby="roleTitle"><button class="dialog-close" aria-label="Đóng thông tin chức danh">×</button><div class="role-content"></div></dialog>
-  <dialog id="mapDialog" aria-labelledby="mapTitle"><button class="dialog-close" aria-label="Đóng bản đồ">×</button><h2 id="mapTitle">Duyệt cơ cấu</h2><p class="map-caption">Chọn tên để chuyển đến đơn vị. Dấu chevron mở hoặc thu nhánh con.</p><div class="map-popup-content"></div></dialog>
-  <nav class="mobile-dock" aria-label="Điều hướng nhanh">
-    <button type="button" data-mobile-home><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="m3 10 9-7 9 7"></path><path d="M5 9v12h14V9M9 21v-7h6v7"></path></svg><span>Tổng quan</span></button>
-    <button type="button" data-open-map aria-haspopup="dialog"><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M4 5h16M4 12h16M4 19h16"></path><circle cx="7" cy="5" r="1.5"></circle><circle cx="17" cy="12" r="1.5"></circle><circle cx="8" cy="19" r="1.5"></circle></svg><span>Cơ cấu</span></button>
-    <a href="./people/"><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><circle cx="9" cy="8" r="3"></circle><path d="M3 20v-1.5A4.5 4.5 0 0 1 7.5 14h3a4.5 4.5 0 0 1 4.5 4.5V20M16 5.2a3 3 0 0 1 0 5.6M17 14.2a4.5 4.5 0 0 1 4 4.5V20"></path></svg><span>Nhân sự</span></a>
-    <button type="button" data-mobile-back><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg><span>Cấp trên</span></button>
-  </nav>
-  <script src="./app.js"></script>
+<body class="bg-[#fbfbfa] text-slate-900 antialiased font-sans">
+  <div id="root"></div>
+  <script type="module" src="./src/main.tsx"></script>
 </body>
 </html>
