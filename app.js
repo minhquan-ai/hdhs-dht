@@ -231,6 +231,27 @@
     </li>`;
   }
 
+  function rootCardHTML(u, index) {
+    const childCount = childrenOf(u.id).length;
+    const roleCount = rolesOf(u.id).length;
+    const meta = [
+      childCount ? `${childCount} đơn vị trực thuộc` : '',
+      roleCount ? `${roleCount} chức danh` : ''
+    ].filter(Boolean);
+    return `<li class="root-unit-card" style="--i:${index}">
+      <button class="root-unit-card__open" data-unit="${esc(u.id)}">
+        <span class="root-unit-card__top">
+          <span class="root-unit-card__kind">${esc(labelKind(u.kind))}</span>
+          <span class="root-unit-card__index">0${index + 1}</span>
+        </span>
+        <strong style="view-transition-name:unit-${esc(u.id)}">${esc(u.name)}</strong>
+        <span class="root-unit-card__summary">${esc(u.summary || 'Mở để xem cơ cấu, chức danh và nhân sự của đơn vị.')}</span>
+        <span class="root-unit-card__meta">${esc(meta.join(' · ') || 'Xem thông tin đơn vị')}</span>
+        <span class="root-unit-card__cta">Khám phá <span aria-hidden="true">↗</span></span>
+      </button>
+    </li>`;
+  }
+
   function renderBreadcrumbs() {
     const path = pathToUnit(state.focusUnitId);
     breadcrumbs.innerHTML = path.map((u, i) => `<li><button data-unit="${esc(u.id)}" ${!state.focusRoleId && i === path.length - 1 ? 'aria-current="page"' : ''}>${esc(u.name)}</button></li>`).join('') + (state.focusRoleId ? `<li><span aria-current="page">${esc(role(state.focusRoleId).title)}</span></li>` : '');
@@ -282,7 +303,17 @@
     const groupedContent = hdhsRoot ? [['board','Điều hành'],['assembly','Đại hội'],['council','Các Hội đồng'],['department','Các Ban chuyên môn'],['other','Đơn vị khác']].map(([kind,label]) => {
       const units = children.filter(u => kind === 'other' ? !['board','assembly','council','department'].includes(u.kind) : u.kind === kind);
       return units.length ? '<section class="content-group"><h2 class="content-group-title">' + label + '<span>' + units.length + '</span></h2><ul class="tree">' + units.map(nodeHTML).join('') + '</ul></section>' : '';
-    }).join('') : root ? '<section class="content-group"><h2 class="content-group-title">Các đơn vị chính<span>' + children.length + '</span></h2><ul class="tree">' + children.map(nodeHTML).join('') + '</ul></section>' : '';
+    }).join('') : root ? '<section class="content-group"><div class="content-group-heading"><div><span class="content-group-kicker">Khám phá tổ chức</span><h2 class="content-group-title">Các đơn vị chính<span>' + children.length + '</span></h2></div><p>Chọn một đơn vị để xem cơ cấu, chức danh và nhân sự bên trong.</p></div><ul class="root-unit-grid">' + children.map(rootCardHTML).join('') + '</ul></section>' : '';
+    const rootOverview = root ? `<aside class="root-overview" aria-label="Lối tắt đến các đơn vị chính">
+      <div class="root-overview__head"><span>Cấu trúc chính</span><small>${children.length} đơn vị</small></div>
+      <div class="root-overview__list">
+        ${children.map((u, index) => `<button class="root-overview__item" data-unit="${esc(u.id)}">
+          <span class="root-overview__num">0${index + 1}</span>
+          <span class="root-overview__copy"><strong>${esc(u.name)}</strong><small>${childrenOf(u.id).length ? childrenOf(u.id).length + ' đơn vị trực thuộc' : 'Đơn vị cấp trường'}</small></span>
+          <span class="root-overview__arrow" aria-hidden="true">↗</span>
+        </button>`).join('')}
+      </div>
+    </aside>` : '';
     app.innerHTML = `
       <div class="org-layout ${root ? 'org-layout--root' : ''} ${!children.length ? 'org-layout--leaf' : ''}">
         <section class="origin ${current.kind === 'board' ? 'origin--executive' : ''}">
@@ -290,6 +321,7 @@
           <h1 tabindex="-1" style="view-transition-name:${currentRole ? 'role-' + esc(currentRole.id) : 'unit-' + esc(current.id)}">${esc(currentRole?.title || current.name)}</h1>
           <p class="origin-summary">${esc(currentRole?.summary || current.summary)}</p>
           <div class="origin-meta">${!currentRole && current.status ? `<span class="status-dot">${esc(current.status)}</span>` : ''}${children.length ? `<span>${children.length} đơn vị trực thuộc</span>` : ''}</div>
+          ${rootOverview}
           ${currentRole ? `<button class="text-link" data-unit="${esc(current.id)}">← ${esc(current.name)}</button>` : ''}
           <section class="desktop-location" aria-label="Duyệt cơ cấu">${locationMapHTML()}</section>
           <button type="button" class="location-trigger" data-open-map aria-haspopup="dialog"><span class="location-trigger-copy"><strong>Duyệt cơ cấu</strong><small>Mở cây đơn vị</small></span><span aria-hidden="true">↗</span></button>
