@@ -611,3 +611,15 @@
     transition-duration: .01ms !important;
   }
 }
+.search-field input[data-slot="input"] {
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  box-shadow: none;
+}
+
+.search-field input[data-slot="input"]:focus-visible {
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+}
