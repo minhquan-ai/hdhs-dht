@@ -51,13 +51,14 @@
   }
 
   function roleKey(assignment) {
-    if (assignment.role_id) return "id:" + assignment.role_id;
-    const label = String(assignment.role_label || "Thành viên").trim();
-    return "label:" + label.toLocaleLowerCase("vi");
+    const label = String(assignment.role_label || "").trim();
+    return label
+      ? "label:" + label.toLocaleLowerCase("vi")
+      : assignment.role_id ? "id:" + assignment.role_id : "label:thành viên";
   }
 
   function assignmentRole(assignment, roleById) {
-    return roleById.get(assignment.role_id)?.title || assignment.role_label || "Thành viên";
+    return assignment.role_label || roleById.get(assignment.role_id)?.title || "Thành viên";
   }
 
   function initials(name) {

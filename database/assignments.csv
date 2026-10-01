@@ -1,12 +1,38 @@
 id,person_id,unit_id,role_id,role_label,status,sort_order
 a-minh-quan-he-thong,p-minh-quan,ban-thong-tin,,Phụ trách hệ thống tạm thời,Tạm thời,1
-a-tt-ha-diem-quynh,p-ha-diem-quynh,ban-truyen-thong,r-clbtt-cn,Chủ nhiệm,Chính thức,1
-a-tt-my-hanh,p-my-hanh,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,10
-a-tt-le-ha-my,p-le-ha-my,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,11
-a-tt-tran-thien-ngan-anh,p-tran-thien-ngan-anh,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,12
-a-tt-tran-thi-minh-tho,p-tran-thi-minh-tho,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,13
-a-tt-truong-thi-thuy-hang,p-truong-thi-thuy-hang,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,14
-a-tt-hoang-ngo-ngoc-tram,p-hoang-ngo-ngoc-tram,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,15
+a-tt-ha-diem-quynh,p-ha-diem-quynh,ban-truyen-thong,r-clbtt-cn,,Chính thức,1
+a-p-ha-diem-quynh-ban-truyen-thong-ban-noi-dung,p-ha-diem-quynh,ban-truyen-thong,r-clbtt-tv,Ban Nội dung,Chính thức,2
+a-p-minh-quan-ban-truyen-thong-chu-nhiem-hinh-anh,p-minh-quan,ban-truyen-thong,r-clbtt-tv,Chủ nhiệm Hình Ảnh,Chính thức,3
+a-p-minh-quan-ban-truyen-thong-ban-hinh-anh,p-minh-quan,ban-truyen-thong,r-clbtt-tv,Ban Hình Ảnh,Chính thức,4
+a-p-minh-quan-ban-truyen-thong-ban-thiet-ke,p-minh-quan,ban-truyen-thong,r-clbtt-tv,Ban Thiết Kế,Chính thức,5
+a-tt-my-hanh,p-my-hanh,ban-truyen-thong,r-clbtt-tv,Ban Thiết Kế,Chính thức,6
+a-p-my-hanh-ban-truyen-thong-ban-noi-dung,p-my-hanh,ban-truyen-thong,r-clbtt-tv,Ban Nội dung,Chính thức,7
+a-tt-le-ha-my,p-le-ha-my,ban-truyen-thong,r-clbtt-tv,Ban Nội dung,Chính thức,8
+a-tt-tran-thien-ngan-anh,p-tran-thien-ngan-anh,ban-truyen-thong,r-clbtt-tv,Ban Nội dung,Chính thức,9
+a-tt-tran-thi-minh-tho,p-tran-thi-minh-tho,ban-truyen-thong,r-clbtt-tv,Chủ nhiệm MC,Chính thức,10
+a-p-tran-thi-minh-tho-ban-truyen-thong-ban-mc,p-tran-thi-minh-tho,ban-truyen-thong,r-clbtt-tv,Ban MC,Chính thức,11
+a-tt-truong-thi-thuy-hang,p-truong-thi-thuy-hang,ban-truyen-thong,r-clbtt-tv,Ban Nội dung,Chính thức,12
+a-tt-hoang-ngo-ngoc-tram,p-hoang-ngo-ngoc-tram,ban-truyen-thong,r-clbtt-tv,Ban Nội dung,Chính thức,13
+a-ngo-nguyen-cong-minh-ban-truyen-thong-ban-hinh-anh,ngo-nguyen-cong-minh,ban-truyen-thong,r-clbtt-tv,Ban Hình Ảnh,Chính thức,14
+a-nguyen-van-phu-ban-truyen-thong-ban-hinh-anh,nguyen-van-phu,ban-truyen-thong,r-clbtt-tv,Ban Hình Ảnh,Chính thức,15
+a-truong-tran-bao-duy-ban-truyen-thong-ban-hinh-anh,truong-tran-bao-duy,ban-truyen-thong,r-clbtt-tv,Ban Hình Ảnh,Chính thức,16
+a-tran-duy-bao-an-ban-truyen-thong-ban-hinh-anh,tran-duy-bao-an,ban-truyen-thong,r-clbtt-tv,Ban Hình Ảnh,Chính thức,17
+a-nguyen-thi-phuong-ly-ban-truyen-thong-ban-thiet-ke,nguyen-thi-phuong-ly,ban-truyen-thong,r-clbtt-tv,Ban Thiết Kế,Chính thức,18
+a-nguyen-song-doan-phuoc-ban-truyen-thong-ban-thiet-ke,nguyen-song-doan-phuoc,ban-truyen-thong,r-clbtt-tv,Ban Thiết Kế,Chính thức,19
+a-nguyen-thi-huong-nguyen-ban-truyen-thong-ban-thiet-ke,nguyen-thi-huong-nguyen,ban-truyen-thong,r-clbtt-tv,Ban Thiết Kế,Chính thức,20
+a-le-thi-thanh-huyen-ban-truyen-thong-ban-thiet-ke,le-thi-thanh-huyen,ban-truyen-thong,r-clbtt-tv,Ban Thiết Kế,Chính thức,21
+a-nguyen-dang-phuong-anh-ban-truyen-thong-ban-mc,nguyen-dang-phuong-anh,ban-truyen-thong,r-clbtt-tv,Ban MC,Chính thức,22
+a-tran-dieu-minh-ban-truyen-thong-ban-mc,tran-dieu-minh,ban-truyen-thong,r-clbtt-tv,Ban MC,Chính thức,23
+a-le-hoang-phuong-linh-ban-truyen-thong-ban-mc,le-hoang-phuong-linh,ban-truyen-thong,r-clbtt-tv,Ban MC,Chính thức,24
+a-ho-thi-diem-my-ban-truyen-thong-ban-mc,ho-thi-diem-my,ban-truyen-thong,r-clbtt-tv,Ban MC,Chính thức,25
+a-ngo-nguyen-kim-ngan-ban-truyen-thong-ban-mc,ngo-nguyen-kim-ngan,ban-truyen-thong,r-clbtt-tv,Ban MC,Chính thức,26
+a-ha-thi-my-tam-ban-truyen-thong-ban-noi-dung,ha-thi-my-tam,ban-truyen-thong,r-clbtt-tv,Ban Nội dung,Chính thức,27
+a-le-thi-thanh-tuyen-ban-truyen-thong-ban-noi-dung,le-thi-thanh-tuyen,ban-truyen-thong,r-clbtt-tv,Ban Nội dung,Chính thức,28
+a-le-ngo-bao-ngoc-ban-truyen-thong-ban-noi-dung,le-ngo-bao-ngoc,ban-truyen-thong,r-clbtt-tv,Ban Nội dung,Chính thức,29
+a-ha-gia-bao-ban-truyen-thong-ban-noi-dung,ha-gia-bao,ban-truyen-thong,r-clbtt-tv,Ban Nội dung,Chính thức,30
+a-ha-thuy-trang-ban-truyen-thong-ban-noi-dung,ha-thuy-trang,ban-truyen-thong,r-clbtt-tv,Ban Nội dung,Chính thức,31
+a-huyen-thi-quynh-nhu-ban-truyen-thong-ban-noi-dung,huyen-thi-quynh-nhu,ban-truyen-thong,r-clbtt-tv,Ban Nội dung,Chính thức,32
+a-ha-tran-to-nhu-ban-truyen-thong-ban-noi-dung,ha-tran-to-nhu,ban-truyen-thong,r-clbtt-tv,Ban Nội dung,Chính thức,33
 a-clb-ky-nang-duong-thi-my-hanh,p-duong-thi-my-hanh,clb-ky-nang,,Thành viên,Chính thức,50
 a-clb-ky-nang-dang-nhat-bao-tran,p-dang-nhat-bao-tran,clb-ky-nang,,Thành viên,Chính thức,50
 a-clb-ky-nang-nguyen-thi-tuyet-nhi,p-nguyen-thi-tuyet-nhi,clb-ky-nang,,Thành viên,Chính thức,50
