@@ -98,6 +98,9 @@
     const selectedUnit = $("#unit-filter").value;
     const selectedClass = $("#class-filter").value;
     const selectedRole = $("#role-filter").value;
+    const activeFilters = [selectedUnit, selectedClass, selectedRole].filter(Boolean).length;
+    const activeFilterCount = $("#active-filter-count");
+    if (activeFilterCount) activeFilterCount.textContent = activeFilters ? activeFilters + " đang bật" : "Tất cả";
     const unitById = new Map(state.units.map(item => [item.id, item]));
     const roleById = new Map(state.roles.map(item => [item.id, item]));
     const personById = new Map(state.people.map(item => [item.id, item]));
@@ -176,6 +179,8 @@
   }
 
   async function init() {
+    const filterPanel = $("#filter-panel");
+    if (filterPanel) filterPanel.open = window.matchMedia("(min-width: 701px)").matches;
     $("#people-search-form").addEventListener("submit", event => event.preventDefault());
     $("#people-query").addEventListener("input", () => { state.visibleCount = 60; render(); });
     $("#unit-filter").addEventListener("change", () => { state.visibleCount = 60; render(); });

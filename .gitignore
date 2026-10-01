@@ -7,5 +7,6 @@ node_modules/
 dist/
 build/
 coverage/
+public/database/
 *.log
 .vercel

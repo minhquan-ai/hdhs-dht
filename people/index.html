@@ -37,16 +37,18 @@
     </section>
 
     <form id="people-search-form" class="people-search" role="search">
-      <label class="search-field" for="people-query">
-        <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
-        <span class="sr-only">Tìm theo tên hoặc lớp</span>
-        <input id="people-query" type="search" inputmode="search" autocomplete="off" placeholder="Tìm theo tên hoặc lớp" aria-describedby="search-hint">
-        <button id="clear-search" type="button" class="clear-search" aria-label="Xóa nội dung tìm kiếm" hidden>×</button>
-      </label>
+      <div id="people-search-root"></div>
       <p id="search-hint" class="search-hint">Một người chỉ có một hồ sơ, kể cả khi tham gia nhiều đơn vị.</p>
     </form>
 
-    <section class="people-filters" aria-label="Lọc danh bạ">
+    <details id="filter-panel" class="filter-panel">
+      <summary class="filter-summary" aria-controls="people-filters">
+        <span><strong>Lọc danh bạ</strong><small>Đơn vị, lớp, chức danh</small></span>
+        <span class="filter-summary-state"><span id="active-filter-count">Tất cả</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="m6 9 6 6 6-6"></path></svg>
+        </span>
+      </summary>
+    <section id="people-filters" class="people-filters" aria-label="Lọc danh bạ">
       <label class="filter-field">
         <span>Đơn vị</span>
         <select id="unit-filter">
@@ -67,6 +69,7 @@
       </label>
       <button id="reset-filters" class="reset-filters" type="button">Xóa bộ lọc</button>
     </section>
+    </details>
 
     <div class="people-results-heading">
       <h2>Thành viên</h2>
@@ -100,6 +103,6 @@
       <span>Danh bạ</span>
     </a>
   </nav>
-  <script src="./people.js" defer></script>
+  <script type="module" src="../src/people/main.tsx"></script>
 </body>
 </html>

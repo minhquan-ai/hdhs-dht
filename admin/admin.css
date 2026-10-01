@@ -353,3 +353,53 @@ td button.action-remove:hover { background:#fff2f0; }
 @media (prefers-reduced-motion: reduce) {
   *,*::before,*::after { transition-duration:.01ms!important; animation-duration:.01ms!important; }
 }
+/* Shared interaction and readability refinements for desktop and touch. */
+body {
+  font-size: 16px;
+}
+
+.eyebrow {
+  font-size: 11px;
+}
+
+.table-hint,
+.page-heading p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.table-tab {
+  min-height: 48px;
+}
+
+table {
+  font-size: 13px;
+}
+
+td button {
+  min-height: 44px;
+  font-size: 12px;
+}
+
+.draft-card small {
+  font-size: 12px;
+}
+
+.draft-status {
+  min-height: 30px;
+}
+
+.field {
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .table-tab {
+    min-height: 48px;
+  }
+
+  td button,
+  .draft-actions button {
+    min-height: 44px;
+  }
+}

@@ -1,0 +1,125 @@
+.admin-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, #fbfcf8 92%, transparent);
+  backdrop-filter: blur(14px);
+}
+
+.login-panel {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.login-card-header {
+  padding: clamp(24px, 5vw, 40px) clamp(24px, 5vw, 40px) 10px;
+}
+
+.login-card-header h1 {
+  margin: 10px 0 12px;
+}
+
+.login-card-description {
+  max-width: 50ch;
+  color: var(--soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.login-card-content {
+  padding: 0 clamp(24px, 5vw, 40px) clamp(24px, 5vw, 40px);
+}
+
+.login-button {
+  min-height: 48px;
+  border-radius: 10px;
+  background: var(--green);
+  color: #fff;
+}
+
+.login-button:hover:not(:disabled) {
+  background: var(--green-dark);
+  color: #fff;
+}
+
+.login-button svg,
+.close-button svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.phase-badge {
+  min-height: 28px;
+  padding: 5px 10px;
+  color: var(--green-dark);
+  background: var(--green-wash);
+  border-color: #c9dccd;
+  letter-spacing: .08em;
+  font-size: 10px;
+}
+
+.pending-chip {
+  align-items: center;
+  gap: 4px;
+}
+
+.table-actions > button,
+.dialog-actions > button {
+  min-height: 44px;
+}
+
+.table-area[data-slot="card"] {
+  display: block;
+  padding: clamp(12px, 2vw, 20px);
+}
+
+.table-nav .table-tab {
+  min-height: 48px;
+}
+
+@media (max-width: 760px) {
+  .admin-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+
+  .login-panel {
+    margin-top: 4vh;
+  }
+
+  .table-actions > button,
+  .draft-actions button,
+  .dialog-actions > button {
+    min-height: 44px;
+  }
+
+  .table-area[data-slot="card"] {
+    padding: 11px;
+  }
+}
+#admin-root h1,
+#admin-root h2 {
+  font-family: var(--font-sans);
+  letter-spacing: -0.025em;
+}
+
+.admin-header {
+  background: #fbfcf8;
+}
+
+@media (max-width: 760px) {
+  .read-only-label {
+    max-width: 150px;
+    white-space: nowrap;
+  }
+
+  .table-actions {
+    gap: 8px;
+  }
+}
