@@ -73,6 +73,15 @@ def main() -> int:
         if f'$("#{filter_id}")' not in people_js:
             errors.append(f"people.js chưa xử lý bộ lọc {filter_id}")
 
+    search_markers = (
+        "const searchKey = value =>",
+        'const query = searchKey($("#people-query").value.trim());',
+        'const haystack = searchKey(person.name + " " + (person.class_name || ""));',
+    )
+    for marker in search_markers:
+        if marker not in people_js:
+            errors.append("people.js thiếu bảo vệ tìm kiếm tên không dấu")
+
     js_files = [p for p in ROOT.rglob("*") if p.is_file() and p.suffix in {".js", ".mjs"}]
     for path in js_files:
         result = subprocess.run(["node", "--check", str(path)], capture_output=True, text=True)
