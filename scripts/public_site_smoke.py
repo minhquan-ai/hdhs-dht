@@ -73,7 +73,13 @@ def main() -> int:
         if f'$("#{filter_id}")' not in people_js:
             errors.append(f"people.js chưa xử lý bộ lọc {filter_id}")
 
-    js_files = [p for p in ROOT.rglob("*") if p.is_file() and p.suffix in {".js", ".mjs"}]
+    js_files = [
+        p for p in ROOT.rglob("*")
+        if p.is_file()
+        and p.suffix in {".js", ".mjs"}
+        and not {".git", "node_modules", "vendor"}.intersection(p.parts)
+        and not p.name.endswith(".bundle.js")
+    ]
     for path in js_files:
         result = subprocess.run(["node", "--check", str(path)], capture_output=True, text=True)
         if result.returncode:

@@ -1,12 +1,36 @@
 id,person_id,unit_id,role_id,role_label,status,sort_order
 a-minh-quan-he-thong,p-minh-quan,ban-thong-tin,,Phụ trách hệ thống tạm thời,Tạm thời,1
 a-tt-ha-diem-quynh,p-ha-diem-quynh,ban-truyen-thong,r-clbtt-cn,Chủ nhiệm,Chính thức,1
-a-tt-my-hanh,p-my-hanh,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,10
-a-tt-le-ha-my,p-le-ha-my,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,11
-a-tt-tran-thien-ngan-anh,p-tran-thien-ngan-anh,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,12
-a-tt-tran-thi-minh-tho,p-tran-thi-minh-tho,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,13
-a-tt-truong-thi-thuy-hang,p-truong-thi-thuy-hang,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,14
-a-tt-hoang-ngo-ngoc-tram,p-hoang-ngo-ngoc-tram,ban-truyen-thong,r-clbtt-tv,Thành viên,Chính thức,15
+a-tt-ha-diem-quynh-noi-dung,p-ha-diem-quynh,tt-noi-dung,,Thành viên,Chính thức,1
+a-tt-minh-quan-hinh-anh,p-minh-quan,tt-hinh-anh,,Chủ nhiệm Hình Ảnh,Chính thức,1
+a-tt-ngo-nguyen-cong-minh,p-ngo-nguyen-cong-minh,tt-hinh-anh,,Thành viên,Chính thức,10
+a-tt-nguyen-van-phu,p-nguyen-van-phu,tt-hinh-anh,,Thành viên,Chính thức,11
+a-tt-truong-tran-bao-duy,p-truong-tran-bao-duy,tt-hinh-anh,,Thành viên,Chính thức,12
+a-tt-tran-duy-bao-an,p-tran-duy-bao-an,tt-hinh-anh,,Thành viên,Chính thức,13
+a-tt-le-thi-my-hanh-thiet-ke,p-my-hanh,tt-thiet-ke,,Thành viên,Chính thức,1
+a-tt-minh-quan-thiet-ke,p-minh-quan,tt-thiet-ke,,Thành viên,Chính thức,2
+a-tt-nguyen-thi-phuong-ly,p-nguyen-thi-phuong-ly,tt-thiet-ke,,Thành viên,Chính thức,10
+a-tt-nguyen-song-doan-phuoc,p-nguyen-song-doan-phuoc,tt-thiet-ke,,Thành viên,Chính thức,11
+a-tt-nguyen-thi-huong-nguyen,p-nguyen-thi-huong-nguyen,tt-thiet-ke,,Thành viên,Chính thức,12
+a-tt-le-thi-thanh-huyen,p-le-thi-thanh-huyen,tt-thiet-ke,,Thành viên,Chính thức,13
+a-tt-tran-thi-minh-tho-mc,p-tran-thi-minh-tho,tt-mc,,Chủ nhiệm MC,Chính thức,1
+a-tt-nguyen-dang-phuong-anh,p-nguyen-dang-phuong-anh,tt-mc,,Thành viên,Chính thức,10
+a-tt-tran-dieu-minh,p-tran-dieu-minh,tt-mc,,Thành viên,Chính thức,11
+a-tt-le-hoang-phuong-linh,p-le-hoang-phuong-linh,tt-mc,,Thành viên,Chính thức,12
+a-tt-ho-thi-diem-my,p-ho-thi-diem-my,tt-mc,,Thành viên,Chính thức,13
+a-tt-ngo-nguyen-kim-ngan,p-ngo-nguyen-kim-ngan,tt-mc,,Thành viên,Chính thức,14
+a-tt-le-thi-my-hanh-noi-dung,p-my-hanh,tt-noi-dung,,Thành viên,Chính thức,2
+a-tt-le-ha-my,p-le-ha-my,tt-noi-dung,,Thành viên,Chính thức,3
+a-tt-tran-thien-ngan-anh,p-tran-thien-ngan-anh,tt-noi-dung,,Thành viên,Chính thức,4
+a-tt-truong-thi-thuy-hang,p-truong-thi-thuy-hang,tt-noi-dung,,Thành viên,Chính thức,5
+a-tt-hoang-ngo-ngoc-tram,p-hoang-ngo-ngoc-tram,tt-noi-dung,,Thành viên,Chính thức,6
+a-tt-ha-thi-my-tam,p-ha-thi-my-tam,tt-noi-dung,,Thành viên,Chính thức,10
+a-tt-le-thi-thanh-tuyen,p-le-thi-thanh-tuyen,tt-noi-dung,,Thành viên,Chính thức,11
+a-tt-le-ngo-bao-ngoc,p-le-ngo-bao-ngoc,tt-noi-dung,,Thành viên,Chính thức,12
+a-tt-ha-gia-bao,p-ha-gia-bao,tt-noi-dung,,Thành viên,Chính thức,13
+a-tt-ha-thuy-trang,p-ha-thuy-trang,tt-noi-dung,,Thành viên,Chính thức,14
+a-tt-huyen-thi-quynh-nhu,p-huyen-thi-quynh-nhu,tt-noi-dung,,Thành viên,Chính thức,15
+a-tt-ha-tran-to-nhu,p-ha-tran-to-nhu,tt-noi-dung,,Thành viên,Chính thức,16
 a-clb-ky-nang-duong-thi-my-hanh,p-duong-thi-my-hanh,clb-ky-nang,,Thành viên,Chính thức,50
 a-clb-ky-nang-dang-nhat-bao-tran,p-dang-nhat-bao-tran,clb-ky-nang,,Thành viên,Chính thức,50
 a-clb-ky-nang-nguyen-thi-tuyet-nhi,p-nguyen-thi-tuyet-nhi,clb-ky-nang,,Thành viên,Chính thức,50
