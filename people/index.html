@@ -7,6 +7,11 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <title>Danh bạ nhân sự · HĐHS DHT</title>
   <link rel="icon" href="../icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/index.css">
+  <link rel="stylesheet" href="../src/brand.css">
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="./people.css">
 </head>
@@ -36,37 +41,35 @@
       </div>
     </section>
 
-    <form id="people-search-form" class="people-search" role="search">
-      <label class="search-field" for="people-query">
-        <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
-        <span class="sr-only">Tìm theo tên hoặc lớp</span>
-        <input id="people-query" type="search" inputmode="search" autocomplete="off" placeholder="Tìm theo tên hoặc lớp" aria-describedby="search-hint">
-        <button id="clear-search" type="button" class="clear-search" aria-label="Xóa nội dung tìm kiếm" hidden>×</button>
-      </label>
-      <p id="search-hint" class="search-hint">Một người chỉ có một hồ sơ, kể cả khi tham gia nhiều đơn vị.</p>
-    </form>
+    <div id="people-search-root"></div>
 
-    <section class="people-filters" aria-label="Lọc danh bạ">
-      <label class="filter-field">
-        <span>Đơn vị</span>
-        <select id="unit-filter">
-          <option value="">Tất cả đơn vị</option>
-        </select>
-      </label>
-      <label class="filter-field">
-        <span>Lớp</span>
-        <select id="class-filter">
-          <option value="">Tất cả lớp</option>
-        </select>
-      </label>
-      <label class="filter-field">
-        <span>Chức danh</span>
-        <select id="role-filter">
-          <option value="">Tất cả chức danh</option>
-        </select>
-      </label>
-      <button id="reset-filters" class="reset-filters" type="button">Xóa bộ lọc</button>
-    </section>
+    <details id="filter-panel" class="filter-panel" open>
+      <summary class="filter-summary">
+        <span class="filter-summary-copy"><strong>Lọc danh bạ</strong><small>Đơn vị, lớp, chức danh</small></span>
+        <span id="filter-count" class="filter-count" aria-live="polite">Tất cả</span>
+      </summary>
+      <section class="people-filters" aria-label="Lọc danh bạ">
+        <label class="filter-field">
+          <span>Đơn vị</span>
+          <select id="unit-filter">
+            <option value="">Tất cả đơn vị</option>
+          </select>
+        </label>
+        <label class="filter-field">
+          <span>Lớp</span>
+          <select id="class-filter">
+            <option value="">Tất cả lớp</option>
+          </select>
+        </label>
+        <label class="filter-field">
+          <span>Chức danh</span>
+          <select id="role-filter">
+            <option value="">Tất cả chức danh</option>
+          </select>
+        </label>
+        <button id="reset-filters" class="reset-filters" type="button">Xóa bộ lọc</button>
+      </section>
+    </details>
 
     <div class="people-results-heading">
       <h2>Thành viên</h2>
@@ -100,6 +103,6 @@
       <span>Danh bạ</span>
     </a>
   </nav>
-  <script src="./people.js" defer></script>
+  <script type="module" src="../src/people/main.tsx"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@
 !.env.example
 node_modules/
 dist/
+public/database/
 build/
 coverage/
 *.log

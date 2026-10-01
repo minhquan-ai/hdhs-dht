@@ -124,9 +124,11 @@
 
     const count = results.length;
     const assignmentCount = results.reduce((total, item) => total + item.assignments.length, 0);
+    const activeFilters = [selectedUnit, selectedClass, selectedRole].filter(Boolean).length;
     $("#people-count").textContent = new Intl.NumberFormat("vi").format(count);
     $("#assignment-count").textContent = assignmentCount + " phân công";
     $("#result-count").textContent = count + " người";
+    $("#filter-count").textContent = activeFilters ? activeFilters + " đang bật" : "Tất cả";
     $("#clear-search").hidden = !$("#people-query").value;
     const visibleResults = results.slice(0, state.visibleCount);
     $("#people-results").innerHTML = visibleResults.map(({ person, assignments }) => {
@@ -176,6 +178,12 @@
   }
 
   async function init() {
+    const filterPanel = $("#filter-panel");
+    const desktopFilters = window.matchMedia("(min-width: 701px)");
+    const syncFilterPanel = () => { filterPanel.open = desktopFilters.matches; };
+    syncFilterPanel();
+    desktopFilters.addEventListener("change", syncFilterPanel);
+
     $("#people-search-form").addEventListener("submit", event => event.preventDefault());
     $("#people-query").addEventListener("input", () => { state.visibleCount = 60; render(); });
     $("#unit-filter").addEventListener("change", () => { state.visibleCount = 60; render(); });
