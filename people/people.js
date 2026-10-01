@@ -20,6 +20,14 @@
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
 
+  function normalizeSearchText(value) {
+    return String(value == null ? "" : value).trim()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[đĐ]/g, "d")
+      .toLocaleLowerCase("vi");
+  }
+
   function parseCSV(text) {
     const rows = [];
     let row = [];
@@ -93,7 +101,7 @@
   }
 
   function render() {
-    const query = $("#people-query").value.trim().toLocaleLowerCase("vi");
+    const query = normalizeSearchText($("#people-query").value);
     const selectedUnit = $("#unit-filter").value;
     const selectedClass = $("#class-filter").value;
     const selectedRole = $("#role-filter").value;
@@ -113,7 +121,7 @@
         const matches = (assignmentsByPerson.get(person.id) || [])
           .filter(item => (!selectedUnit || item.unit_id === selectedUnit) &&
             (!selectedRole || roleKey(item) === selectedRole));
-        const haystack = (person.name + " " + (person.class_name || "")).toLocaleLowerCase("vi");
+        const haystack = normalizeSearchText(person.name + " " + (person.class_name || ""));
         return { person, assignments: matches, haystack };
       })
       .filter(item => item.assignments.length &&
