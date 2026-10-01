@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import csv
+import os
 import re
 from pathlib import Path
 
@@ -59,11 +60,14 @@ def main() -> int:
     if "requireOwner(req, res)" not in drafts or "sameOrigin(req)" not in drafts:
         errors.append("API nháp thiếu owner auth hoặc same-origin")
     for forbidden_ref in ("08A - Dữ liệu nhân sự", "08B - Dữ liệu nội bộ"):
-        for path in ROOT.rglob("*"):
-            if path.is_file() and ".git" not in path.parts and path.suffix.lower() in {".js", ".mjs", ".html", ".css", ".csv", ".json"}:
-                if forbidden_ref in path.read_text(encoding="utf-8", errors="ignore"):
-                    errors.append(f"{path.relative_to(ROOT)} tham chiếu nguồn nội bộ {forbidden_ref}")
-                    break
+        for current, dirs, files in os.walk(ROOT):
+            dirs[:] = [name for name in dirs if name not in {".git", ".vercel", "node_modules", "dist", "build", "coverage"}]
+            for name in files:
+                path = Path(current) / name
+                if path.suffix.lower() in {".js", ".mjs", ".html", ".css", ".csv", ".json"}:
+                    if forbidden_ref in path.read_text(encoding="utf-8", errors="ignore"):
+                        errors.append(f"{path.relative_to(ROOT)} tham chiếu nguồn nội bộ {forbidden_ref}")
+                        break
 
     if errors:
         for error in errors:
