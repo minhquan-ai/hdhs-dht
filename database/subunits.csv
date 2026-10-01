@@ -3,12 +3,16 @@ khoi-10,dai-hoi,Khối 10,group,1,14 lớp · 14 đại diện,Dự kiến
 khoi-11,dai-hoi,Khối 11,group,2,13 lớp · 13 đại diện,Dự kiến
 khoi-12,dai-hoi,Khối 12,group,3,14 lớp · 14 đại diện,Dự kiến
 clb-nhay,hoi-dong-clb,The Flames Club,club,1,12 thành viên hiện tại · tích hợp Dancesport,Đang hoạt động
-clb-van-nghe,hoi-dong-clb,CLB Văn nghệ,club,2,Đang hoàn thiện danh sách thành viên chính thức,Đang tuyển
+clb-van-nghe,hoi-dong-clb,CLB Văn nghệ,club,2,Chưa có danh sách thành viên hiện tại được chốt,Đang tuyển
 clb-am-nhac,hoi-dong-clb,CLB Âm nhạc,club,3,CLB độc lập song song với CLB Văn nghệ,Đang hoạt động
 clb-ky-nang,hoi-dong-clb,CLB Kỹ năng Đoàn - Hội,club,4,18 thành viên hiện tại,Đang hoạt động
 clb-tin-hoc,hoi-dong-clb,CLB Tin học,club,5,Thông tin sẽ tiếp tục xác minh,Chưa xác minh
 clb-cau-long,hoi-dong-clb,CLB Cầu lông,club,6,Thông tin sẽ tiếp tục xác minh,Chưa xác minh
-ban-trat-tu,doan-truong,Ban Trật tự - Nề nếp,school-board,1,Đang hoàn thiện danh sách thành viên chính thức,Đang tuyển
+ban-trat-tu,doan-truong,Ban Trật tự - Nề nếp,school-board,1,Chưa có danh sách thành viên hiện tại được chốt,Đang tuyển
+tt-hinh-anh,ban-truyen-thong,Ban Hình Ảnh,team,1,5 thành viên · phụ trách hình ảnh và ghi hình,Đang hoạt động
+tt-thiet-ke,ban-truyen-thong,Ban Thiết Kế,team,2,6 thành viên,Đang hoạt động
+tt-mc,ban-truyen-thong,Ban MC,team,3,6 thành viên,Đang hoạt động
+tt-noi-dung,ban-truyen-thong,Ban Nội dung,team,4,13 thành viên,Đang hoạt động
 lop-10-1,khoi-10,Lớp 10/1,class,1,1 đại diện lớp,Dự kiến
 lop-10-2,khoi-10,Lớp 10/2,class,2,1 đại diện lớp,Dự kiến
 lop-10-3,khoi-10,Lớp 10/3,class,3,1 đại diện lớp,Dự kiến
