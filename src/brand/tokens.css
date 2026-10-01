@@ -1,0 +1,159 @@
+:root {
+  /* Primitive · Evergreen */
+  --dht-green-50: #f2f8f5;
+  --dht-green-100: #e1f0e9;
+  --dht-green-200: #c4e1d3;
+  --dht-green-300: #96c9b0;
+  --dht-green-400: #62aa88;
+  --dht-green-500: #3a8a6b;
+  --dht-green-600: #256e54;
+  --dht-green-700: #195744;
+  --dht-green-800: #164638;
+  --dht-green-900: #133a30;
+  --dht-green-950: #0a211a;
+
+  /* Primitive · Warm neutral */
+  --dht-stone-0: #ffffff;
+  --dht-stone-50: #f8f9f7;
+  --dht-stone-100: #f1f3f0;
+  --dht-stone-200: #e1e5e1;
+  --dht-stone-300: #cbd1cc;
+  --dht-stone-400: #9ca69f;
+  --dht-stone-500: #6f7a73;
+  --dht-stone-600: #515c55;
+  --dht-stone-700: #3b443e;
+  --dht-stone-800: #252c28;
+  --dht-stone-900: #171c19;
+  --dht-stone-950: #0c0f0d;
+
+  /* Primitive · Functional accents */
+  --dht-amber-500: #c77a22;
+  --dht-amber-100: #faecd8;
+  --dht-blue-500: #3569a8;
+  --dht-blue-100: #e5eef8;
+  --dht-coral-500: #c85c52;
+  --dht-coral-100: #f8e6e3;
+
+  /* Semantic · surfaces */
+  --brand-canvas: var(--dht-stone-50);
+  --brand-surface: var(--dht-stone-0);
+  --brand-surface-subtle: var(--dht-stone-100);
+  --brand-surface-strong: var(--dht-green-50);
+
+  /* Semantic · text */
+  --brand-text: var(--dht-stone-900);
+  --brand-text-secondary: var(--dht-stone-700);
+  --brand-text-muted: var(--dht-stone-500);
+  --brand-text-inverse: #ffffff;
+
+  /* Semantic · interaction */
+  --brand-primary: var(--dht-green-700);
+  --brand-primary-hover: var(--dht-green-900);
+  --brand-primary-active: var(--dht-green-950);
+  --brand-primary-soft: var(--dht-green-100);
+  --brand-primary-foreground: #ffffff;
+  --brand-focus: var(--dht-blue-500);
+
+  /* Semantic · borders */
+  --brand-border-subtle: var(--dht-stone-100);
+  --brand-border: var(--dht-stone-200);
+  --brand-border-strong: var(--dht-stone-300);
+
+  /* Semantic · status */
+  --brand-success: var(--dht-green-600);
+  --brand-success-soft: var(--dht-green-100);
+  --brand-info: var(--dht-blue-500);
+  --brand-info-soft: var(--dht-blue-100);
+  --brand-warning: var(--dht-amber-500);
+  --brand-warning-soft: var(--dht-amber-100);
+  --brand-danger: var(--dht-coral-500);
+  --brand-danger-soft: var(--dht-coral-100);
+
+  /* Typography */
+  --brand-font-sans: "Geist Variable", Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --brand-font-mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --brand-text-xs: 0.75rem;
+  --brand-text-sm: 0.875rem;
+  --brand-text-md: 1rem;
+  --brand-text-lg: 1.125rem;
+  --brand-text-xl: 1.375rem;
+  --brand-text-2xl: 1.75rem;
+  --brand-text-3xl: 2.25rem;
+  --brand-text-4xl: 3rem;
+  --brand-text-5xl: 4rem;
+
+  /* Spacing · 4px grid */
+  --brand-space-1: 0.25rem;
+  --brand-space-2: 0.5rem;
+  --brand-space-3: 0.75rem;
+  --brand-space-4: 1rem;
+  --brand-space-6: 1.5rem;
+  --brand-space-8: 2rem;
+  --brand-space-10: 2.5rem;
+  --brand-space-12: 3rem;
+  --brand-space-16: 4rem;
+  --brand-space-20: 5rem;
+
+  /* Radius */
+  --brand-radius-sm: 0.375rem;
+  --brand-radius-md: 0.625rem;
+  --brand-radius-lg: 0.875rem;
+  --brand-radius-xl: 1.25rem;
+  --brand-radius-pill: 999px;
+
+  /* Shadow */
+  --brand-shadow-xs: 0 1px 2px rgb(12 33 26 / 0.05);
+  --brand-shadow-sm: 0 4px 14px rgb(12 33 26 / 0.07);
+  --brand-shadow-md: 0 12px 32px rgb(12 33 26 / 0.11);
+
+  /* Layout */
+  --brand-container-narrow: 45rem;
+  --brand-container-content: 60rem;
+  --brand-container-wide: 75rem;
+  --brand-container-max: 85rem;
+  --brand-gutter-mobile: 1rem;
+  --brand-gutter-tablet: 1.5rem;
+  --brand-gutter-desktop: 2rem;
+  --brand-gutter-large: 2.5rem;
+
+  /* Motion */
+  --brand-motion-fast: 120ms;
+  --brand-motion-base: 180ms;
+  --brand-motion-slow: 260ms;
+  --brand-ease-standard: cubic-bezier(.2,.8,.2,1);
+
+  /* Component defaults */
+  --brand-control-height-sm: 2rem;
+  --brand-control-height-md: 2.5rem;
+  --brand-control-height-touch: 2.75rem;
+  --brand-icon-sm: 1rem;
+  --brand-icon-md: 1.25rem;
+  --brand-icon-lg: 1.5rem;
+}
+
+[data-theme="dark"] {
+  --brand-canvas: #101512;
+  --brand-surface: #171d19;
+  --brand-surface-subtle: #1d2520;
+  --brand-surface-strong: #183429;
+  --brand-text: #f4f7f5;
+  --brand-text-secondary: #d4ddd7;
+  --brand-text-muted: #98a59d;
+  --brand-text-inverse: #101512;
+  --brand-primary: #72bd98;
+  --brand-primary-hover: #91ceb0;
+  --brand-primary-active: #b5dec9;
+  --brand-primary-soft: #183d30;
+  --brand-primary-foreground: #0d2119;
+  --brand-border-subtle: #202b25;
+  --brand-border: #334039;
+  --brand-border-strong: #46554d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --brand-motion-fast: 1ms;
+    --brand-motion-base: 1ms;
+    --brand-motion-slow: 1ms;
+  }
+}

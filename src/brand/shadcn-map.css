@@ -1,0 +1,26 @@
+/*
+  Brand -> shadcn semantic mapping.
+  Import this AFTER tokens.css when the redesign starts.
+  It is intentionally not imported by the current wireframe.
+*/
+:root {
+  --background: var(--brand-canvas);
+  --foreground: var(--brand-text);
+  --card: var(--brand-surface);
+  --card-foreground: var(--brand-text);
+  --popover: var(--brand-surface);
+  --popover-foreground: var(--brand-text);
+  --primary: var(--brand-primary);
+  --primary-foreground: var(--brand-primary-foreground);
+  --secondary: var(--brand-surface-subtle);
+  --secondary-foreground: var(--brand-text);
+  --muted: var(--brand-surface-subtle);
+  --muted-foreground: var(--brand-text-muted);
+  --accent: var(--brand-primary-soft);
+  --accent-foreground: var(--dht-green-900);
+  --destructive: var(--brand-danger);
+  --border: var(--brand-border);
+  --input: var(--brand-border);
+  --ring: var(--brand-focus);
+  --radius: var(--brand-radius-md);
+}

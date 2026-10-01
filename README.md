@@ -15,14 +15,28 @@ Nguồn chuẩn là sáu CSV tại `../05 - Ứng dụng MVP/app/database`. Dữ
 
 ## Chạy và kiểm tra
 
-Tại thư mục dự án, chạy:
+Tại thư mục dự án, kiểm tra và xuất dữ liệu public theo whitelist:
 
 ```sh
 python3 tools/kiem_tra_du_lieu_hdhs.py
 python3 tools/chuan_bi_du_lieu_cong_khai.py
 ```
 
-Trong repo này, chạy `npm test`. Để xem giao diện công khai cục bộ, chạy máy chủ tĩnh trong thư mục repo rồi mở `/` và `/people/`. Để kiểm tra OAuth/API, điền cấu hình riêng theo `.env.example` và dùng Vercel Dev; không đưa bí mật vào Git hoặc chat.
+Trong repo này, chạy `npm install`, sau đó `npm run dev` để xem giao diện ở `/`, `/people/` và `/admin/`. `npm run build` tạo bản tĩnh trong `dist/` và sao chép sáu CSV public vào đầu ra. Chạy `npm test` để kiểm tra dữ liệu và quyền riêng tư. OAuth/API cần cấu hình riêng trên Vercel; không đưa bí mật vào Git hoặc chat.
+
+Giao diện tìm kiếm và đăng nhập dùng các component shadcn/ui được lưu trong `src/components/ui`; sơ đồ và luồng dữ liệu hiện có tiếp tục chạy bằng JavaScript.
+
+## Hệ thống nhận diện web
+
+Brand foundation dùng chung cho các màn hình hiện tại và Pha sau nằm tại:
+
+- `docs/HE_THONG_NHAN_DIEN_WEB.md`: quy tắc nhận diện và UX.
+- `src/brand/tokens.css`: token CSS source of truth.
+- `src/brand/tokens.json`: token dạng dữ liệu cho tooling.
+- `src/brand/shadcn-map.css`: mapping sang semantic token của shadcn/ui.
+- `/brand/`: style guide trực quan để review trước khi áp vào giao diện thật.
+
+Wireframe hiện tại chưa import mapping shadcn của brand; việc áp nhận diện nên thực hiện theo từng màn hình sau khi style guide được chốt.
 
 ## Phạm vi
 
