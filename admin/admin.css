@@ -1,7 +1,7 @@
 :root {
   --ink:#1e2823;
   --soft:#63716a;
-  --faint:#8b978f;
+  --faint:#64736a;
   --paper:#f5f5f0;
   --surface:#fffefa;
   --line:#e2e7df;
@@ -353,3 +353,7 @@ td button.action-remove:hover { background:#fff2f0; }
 @media (prefers-reduced-motion: reduce) {
   *,*::before,*::after { transition-duration:.01ms!important; animation-duration:.01ms!important; }
 }
+.admin-login-header { gap:12px; }
+.admin-login-content { display:grid; justify-items:start; gap:12px; }
+.admin-login-content > p { margin:0; }
+.owner-badge { height:auto; min-height:24px; border-color:#cfd9ce; color:var(--green-dark); }
