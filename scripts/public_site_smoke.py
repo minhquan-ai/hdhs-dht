@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import csv
+import os
 import subprocess
 from pathlib import Path
 
@@ -73,7 +74,10 @@ def main() -> int:
         if f'$("#{filter_id}")' not in people_js:
             errors.append(f"people.js chưa xử lý bộ lọc {filter_id}")
 
-    js_files = [p for p in ROOT.rglob("*") if p.is_file() and p.suffix in {".js", ".mjs"}]
+    js_files = []
+    for current, dirs, files in os.walk(ROOT):
+        dirs[:] = [name for name in dirs if name not in {".git", ".vercel", "node_modules", "dist", "build", "coverage"}]
+        js_files.extend(Path(current) / name for name in files if Path(name).suffix in {".js", ".mjs"})
     for path in js_files:
         result = subprocess.run(["node", "--check", str(path)], capture_output=True, text=True)
         if result.returncode:

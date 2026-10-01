@@ -143,8 +143,27 @@
   font-size: 17px;
 }
 
+.search-field input[data-slot="input"] {
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.search-field input[data-slot="input"] {
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.search-field input:focus,
+.search-field input:focus-visible {
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+}
+
 .search-field input::placeholder {
-  color: #77837c;
+  color: var(--muted);
   opacity: 1;
 }
 
@@ -174,12 +193,27 @@
   font-size: 12px;
 }
 
+.filter-panel {
+  margin: 22px 0 54px;
+}
+
+.filter-summary {
+  display: none;
+}
+
 .people-filters {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(150px, .65fr) minmax(0, 1fr) auto;
   align-items: end;
   gap: 14px;
-  margin: 22px 0 54px;
+  margin: 0;
+}
+
+.filter-count {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
 }
 
 .filter-field {
@@ -472,7 +506,7 @@
     grid-template-columns: 1fr;
   }
 
-  .people-filters {
+  .filter-panel {
     margin-bottom: 42px;
   }
 }
@@ -539,10 +573,77 @@
     font-size: 16px;
   }
 
+  .filter-panel {
+    overflow: hidden;
+    margin: 17px 0 34px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface);
+  }
+
+  .filter-summary {
+    display: flex;
+    min-height: 58px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 9px 13px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .filter-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .filter-summary:focus-visible {
+    outline: 3px solid #84b69a;
+    outline-offset: -3px;
+  }
+
+  .filter-summary-copy strong,
+  .filter-summary-copy small {
+    display: block;
+  }
+
+  .filter-summary-copy {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .filter-summary-copy strong {
+    color: var(--ink);
+    font-size: 13px;
+  }
+
+  .filter-summary-copy small {
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: 11px;
+  }
+
+  .filter-summary::after {
+    content: "⌄";
+    color: var(--green);
+    font-size: 18px;
+    transition: transform 160ms ease;
+  }
+
+  .filter-panel[open] .filter-summary::after {
+    transform: rotate(180deg);
+  }
+
+  .filter-count {
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: var(--tint);
+    font-size: 11px;
+  }
+
   .people-filters {
     grid-template-columns: 1fr;
-    gap: 10px;
-    margin: 17px 0 8px;
+    gap: 12px;
+    padding: 0 13px 14px;
   }
 
   .filter-field select {
