@@ -3,10 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f7f8f5">
+  <meta name="theme-color" content="#f8fafc">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <title>Sơ đồ HĐHS DHT</title>
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -17,7 +20,9 @@
       <span class="brand-copy"><strong>Hội đồng Học sinh</strong><small>THPT Đặng Huy Trứ</small></span>
     </button>
     <div class="navigation"><button id="backButton" class="back-button" type="button" aria-label="Quay lại cấp trên">← <span>Quay lại</span></button><nav aria-label="Đường dẫn cấp bậc"><ol id="breadcrumbs" class="breadcrumbs"></ol></nav></div>
-    <a class="people-page-link" href="./people/" aria-label="Mở danh bạ nhân sự">Danh bạ nhân sự <span aria-hidden="true">→</span></a>
+    <div class="topbar-actions">
+      <a class="people-page-link" href="./people/" aria-label="Mở danh bạ nhân sự"><span class="link-label">Danh bạ nhân sự</span> <span class="link-icon" aria-hidden="true">→</span></a>
+    </div>
   </header>
   <main id="app" class="stage" tabindex="-1" aria-live="polite"><div class="loading">Đang tải sơ đồ…</div></main>
   <footer class="footer"><span>HĐHS / THPT Đặng Huy Trứ</span><span>Bản nháp trực quan hóa · Cơ cấu dự kiến</span></footer>

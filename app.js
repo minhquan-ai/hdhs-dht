@@ -103,8 +103,8 @@
   function labelKind(kind) {
     return ({
       root:"Trường",
-      "school-leadership":"BGH",
-      "school-organization":"Đoàn trường",
+      "school-leadership":"Ban Giám hiệu",
+      "school-organization":"Tổ chức Đoàn",
       "student-council":"Hội đồng Học sinh",
       board:"Điều hành",
       assembly:"Đại diện",
@@ -206,27 +206,40 @@
     const visible = compact ? roles.slice(0, 1) : roles;
     return `<div class="roles ${compact ? 'roles--compact' : ''}">${visible.map(r => {
       const names = assignmentsOfRole(r.id).map(a => person(a.person_id)?.name).filter(Boolean);
-      return `<button class="role-link" data-role="${esc(r.id)}"><span class="role-title">${esc(r.title)}</span><strong class="${names.length ? '' : 'unassigned'}">${esc(names.join(' · ') || 'Chưa phân công')}</strong><span class="link-arrow" aria-hidden="true">↗</span></button>`;
+      return `<button class="role-link" data-role="${esc(r.id)}"><span class="role-title">${esc(r.title)}</span><strong class="${names.length ? 'assigned-name' : 'unassigned'}">${esc(names.join(' · ') || 'Chưa phân công')}</strong><span class="link-arrow" aria-hidden="true">↗</span></button>`;
     }).join('')}${compact && roles.length > 1 ? `<button class="more-roles" data-unit="${esc(id)}">Xem ${roles.length} chức danh <span aria-hidden="true">→</span></button>` : ''}</div>`;
   }
 
   function memberHTML(a) {
     const p = person(a.person_id);
     if (!p) return '';
-    return `<button class="member" data-person="${esc(p.id)}"><span class="avatar" aria-hidden="true">${esc(initials(p.name))}</span><span><strong>${esc(p.name)}</strong><small>${esc(a.role_label || role(a.role_id)?.title || 'Thành viên')}${p.class_name ? ' · ' + esc(p.class_name) : ''}</small><small>${esc(a.status)}</small></span><span class="link-arrow" aria-hidden="true">↗</span></button>`;
+    return `<button class="member" data-person="${esc(p.id)}"><span class="avatar" aria-hidden="true">${esc(initials(p.name))}</span><div class="member-meta"><strong class="member-name">${esc(p.name)}</strong><small class="member-role">${esc(a.role_label || role(a.role_id)?.title || 'Thành viên')}${p.class_name ? ' · ' + esc(p.class_name) : ''}</small><small class="member-status">${esc(a.status)}</small></div><span class="link-arrow" aria-hidden="true">↗</span></button>`;
   }
 
   function nodeHTML(u, index) {
     const children = childrenOf(u.id);
     const executive = u.kind === 'board';
-    const major = ['assembly', 'council'].includes(u.kind);
+    const major = ['assembly', 'council', 'student-council'].includes(u.kind) || children.length >= 4;
+    const isGrid = children.length >= 4;
+    const hasSummary = u.summary && u.summary !== u.name;
     return `<li class="branch ${executive ? 'branch--executive' : major ? 'branch--major' : 'branch--minor'}" style="--i:${index}">
       <article class="unit-node">
         <div class="unit-identity">
-          <button class="unit-open" data-unit="${esc(u.id)}"><span class="eyebrow">${esc(labelKind(u.kind))}</span><span class="unit-name" style="view-transition-name:unit-${esc(u.id)}">${esc(u.name)}</span><span class="node-arrow" aria-hidden="true">↗</span></button>
+          <button class="unit-open" data-unit="${esc(u.id)}">
+            <div class="unit-header-badges">
+              <span class="eyebrow">${esc(labelKind(u.kind))}</span>
+              ${u.status ? `<span class="status-pill status-pill--${esc(u.status.toLowerCase().replace(/\s+/g,'-'))}"><span class="status-dot-inner"></span>${esc(u.status)}</span>` : ''}
+            </div>
+            <div class="unit-title-group">
+              <span class="unit-name" style="view-transition-name:unit-${esc(u.id)}">${esc(u.name)}</span>
+              <span class="node-arrow" aria-hidden="true">↗</span>
+            </div>
+            ${hasSummary ? `<p class="unit-card-summary">${esc(u.summary)}</p>` : ''}
+            ${children.length ? `<div class="unit-footer-badges"><span class="unit-count-chip">${children.length} đơn vị trực thuộc</span></div>` : ''}
+          </button>
         </div>
         ${rolesHTML(u.id, !executive)}
-        ${children.length ? `<div class="descendants"><ul aria-label="Đơn vị thuộc ${esc(u.name)}">${children.map(child => `<li><button data-unit="${esc(child.id)}"><span style="view-transition-name:unit-${esc(child.id)}">${esc(child.name)}</span><span aria-hidden="true">→</span></button></li>`).join('')}</ul></div>` : ''}
+        ${children.length ? `<div class="descendants ${isGrid ? 'descendants--grid' : ''}"><div class="descendants-label">Đơn vị trực thuộc</div><ul aria-label="Đơn vị thuộc ${esc(u.name)}">${children.map(child => `<li><button data-unit="${esc(child.id)}"><span style="view-transition-name:unit-${esc(child.id)}">${esc(child.name)}</span><span class="descendant-arrow" aria-hidden="true">→</span></button></li>`).join('')}</ul></div>` : ''}
       </article>
     </li>`;
   }
@@ -289,9 +302,15 @@
           <div class="origin-content"><span class="section-number">${String(depth).padStart(2, '0')} / ${esc(currentRole ? 'Chức danh' : labelKind(current.kind))}</span>
           <h1 tabindex="-1" style="view-transition-name:${currentRole ? 'role-' + esc(currentRole.id) : 'unit-' + esc(current.id)}">${esc(currentRole?.title || current.name)}</h1>
           <p class="origin-summary">${esc(currentRole?.summary || current.summary)}</p>
-          <div class="origin-meta">${!currentRole && current.status ? `<span class="status-dot">${esc(current.status)}</span>` : ''}${children.length ? `<span>${children.length} đơn vị trực thuộc</span>` : ''}</div>
+          <div class="origin-meta">${!currentRole && current.status ? `<span class="status-pill status-pill--${esc(current.status.toLowerCase().replace(/\s+/g,'-'))}"><span class="status-dot-inner"></span>${esc(current.status)}</span>` : ''}${children.length ? `<span class="meta-chip">${children.length} đơn vị trực thuộc</span>` : ''}</div>
           ${currentRole ? `<button class="text-link" data-unit="${esc(current.id)}">← ${esc(current.name)}</button>` : ''}
-          <section class="desktop-location" aria-label="Duyệt cơ cấu">${locationMapHTML()}</section>
+          <section class="desktop-location" aria-label="Duyệt cơ cấu">
+            <div class="desktop-location-header">
+              <span class="location-heading">Bản đồ cây cơ cấu</span>
+              <span class="location-hint">Duyệt nhanh</span>
+            </div>
+            ${locationMapHTML()}
+          </section>
           <button type="button" class="location-trigger" data-open-map aria-haspopup="dialog"><span class="location-trigger-copy"><strong>Duyệt cơ cấu</strong><small>Mở cây đơn vị</small></span><span aria-hidden="true">↗</span></button>
           </div>
         </section>
