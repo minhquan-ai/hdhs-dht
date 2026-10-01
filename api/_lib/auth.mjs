@@ -1,7 +1,7 @@
 import crypto from "node:crypto";
 import { send } from "./http.mjs";
 
-export const OWNER_GITHUB_ID = "221583146";
+export const OWNER_GITHUB_ID = process.env.HDHS_OWNER_GITHUB_ID || "";
 export const SESSION_COOKIE = "hdhs_owner_session";
 export const STATE_COOKIE = "hdhs_oauth_state";
 const SESSION_SECONDS = 4 * 60 * 60;
@@ -37,7 +37,12 @@ function safeEqual(left, right) {
 }
 
 export function authConfigured() {
-  return Boolean(process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET && process.env.HDHS_SESSION_SECRET);
+  return Boolean(
+    /^\d{1,20}$/.test(OWNER_GITHUB_ID) &&
+    process.env.GITHUB_CLIENT_ID &&
+    process.env.GITHUB_CLIENT_SECRET &&
+    process.env.HDHS_SESSION_SECRET
+  );
 }
 
 export function githubLoginUrl(state) {
@@ -83,7 +88,7 @@ export function verifySession(req) {
   if (!safeEqual(signature, sign(payload))) return null;
   try {
     const session = JSON.parse(Buffer.from(payload, "base64url").toString("utf8"));
-    if (String(session.uid) !== OWNER_GITHUB_ID || Number(session.exp) <= Math.floor(Date.now() / 1000)) return null;
+    if (!/^\d{1,20}$/.test(OWNER_GITHUB_ID) || String(session.uid) !== OWNER_GITHUB_ID || Number(session.exp) <= Math.floor(Date.now() / 1000)) return null;
     return session;
   } catch { return null; }
 }

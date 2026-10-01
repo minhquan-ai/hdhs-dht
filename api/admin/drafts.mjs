@@ -20,11 +20,14 @@ function validateOperation(tableName, operation) {
   if (!OPERATIONS.has(operation)) {
     throw Object.assign(new Error("Loại thay đổi không hợp lệ."), { status: 400 });
   }
-  if (operation === "create" && !CREATE_TABLES.has(tableName)) {
-    throw Object.assign(new Error("Pha này chỉ cho phép tạo hồ sơ người và phân công."), { status: 400 });
+  if (operation === "remove") {
+    if (tableName !== "assignments.csv") {
+      throw Object.assign(new Error("Chỉ được gỡ phân công; hồ sơ người không bị xóa cứng."), { status: 400 });
+    }
+    return;
   }
-  if (operation === "remove" && tableName !== "assignments.csv") {
-    throw Object.assign(new Error("Chỉ được gỡ phân công; hồ sơ người không bị xóa cứng."), { status: 400 });
+  if (!CREATE_TABLES.has(tableName)) {
+    throw Object.assign(new Error("Pha này chỉ cho phép tạo hoặc sửa hồ sơ người và phân công."), { status: 400 });
   }
 }
 

@@ -1,27 +1,38 @@
-# Pha 1 - kiểm tra và triển khai
+# Pha 1 — vận hành và kiểm tra
 
-Cập nhật: 27/09/2026.
+Cập nhật: 30/09/2026.
 
-## Nguồn dữ liệu
+## Nguồn và xuất dữ liệu
 
-Nguồn chuẩn là sáu CSV trong `05 - Ứng dụng MVP/app/database`. Thư mục `09/database` chỉ là bản công khai đã lọc trường. Không đưa dữ liệu casting, số điện thoại, ngày sinh, email, giới tính, địa chỉ hoặc ghi chú nội bộ sang public.
+Nguồn chuẩn là sáu CSV trong `../05 - Ứng dụng MVP/app/database`. Sửa tại nguồn này. Từ thư mục dự án, chạy `python3 tools/kiem_tra_du_lieu_hdhs.py`, sau đó `python3 tools/chuan_bi_du_lieu_cong_khai.py`. Lệnh xuất chỉ tạo bản whitelist trong repo web và không ghi đè giao diện.
 
-## Quy trình an toàn
+## Use case cần đạt
 
-1. Sửa dữ liệu ở nguồn chuẩn `05`.
-2. Chạy `python3 tools/hdhs_validate.py` tại thư mục dự án.
-3. Chạy `python3 tools/hdhs_prepare_public.py`. Mặc định lệnh này chỉ đồng bộ database, không ghi đè giao diện public.
-4. Trong repo `09`, chạy `npm test`.
-5. Chạy local server và kiểm tra sơ đồ, `/people/`, `/admin/` trên desktop và mobile.
-6. Chỉ deploy preview sau khi các kiểm tra trên đạt. Không dùng `--prod` khi chưa có gate riêng.
-7. Sau khi đối chiếu preview, commit đúng các file đã review rồi mới cân nhắc production.
+- Khách xem sơ đồ và đi đến hồ sơ người.
+- Khách tìm/lọc danh bạ; một người có thể có nhiều phân công.
+- Chủ đăng nhập GitHub, tạo/sửa nháp, thêm/gỡ phân công, bỏ nháp.
+- Dữ liệu public chỉ đổi sau khi chủ đối chiếu, cập nhật nguồn, kiểm tra và xuất lại.
 
-Chỉ dùng `python3 tools/hdhs_prepare_public.py --sync-assets` khi đã chủ động review và muốn đồng bộ năm asset lõi từ app nguồn. Cờ này tồn tại để tránh chuyện một lệnh xuất dữ liệu vô tình đè giao diện đang phát triển, loại tai nạn rất đúng chất phần mềm nếu không chặn trước.
+## Kiểm tra tại máy
 
-## Quy tắc bản nháp admin
+Trong repo web, chạy `npm test`. Mở site trên màn hình máy tính và điện thoại: kiểm tra sơ đồ, `/people/`, tìm/lọc, liên kết hai chiều, dữ liệu rỗng/lỗi và không tràn ngang. Kiểm tra API admin với cấu hình OAuth và Neon riêng; tài khoản ngoài danh sách chủ phải bị từ chối.
 
-Admin chỉ lưu nháp. API bắt buộc phiên chủ sở hữu và kiểm tra same-origin với thao tác ghi. Một hồ sơ người có thể có nhiều phân công. Gỡ phân công không xóa cứng người. Nháp sửa dùng revision để chặn ghi đè khi một tab khác đã thay đổi.
+## Cấu hình admin
 
-## Gate Pha 1
+Sao chép `.env.example` thành `.env.local` ở máy cá nhân và điền GitHub OAuth Client ID/Secret, ID số GitHub của chủ, `HDHS_SESSION_SECRET`, `DATABASE_URL`, site origin và callback URL. Không ghi secret vào Git hoặc chat. GitHub OAuth App phải đăng ký đúng callback. Dùng Neon riêng cho các bản nháp.
 
-Pha 1 chỉ được xem là đủ nền khi: schema public không lệch, quan hệ ID hợp lệ, privacy smoke đạt, route/syntax smoke đạt, sơ đồ và danh bạ không tràn ngang trên mobile, admin không cho dữ liệu casting trở thành phân công public, và preview đã được kiểm tra trước production.
+## Quy tắc
+
+Admin chỉ lưu nháp có phiên bản; API kiểm tra chủ, same-origin, whitelist trường và xung đột phiên bản. Gỡ phân công không xóa cứng hồ sơ. Không có nút tự xuất bản hoặc ghi trực tiếp CSV từ trình duyệt.
+
+## Trạng thái triển khai đã kiểm tra 30/09/2026
+
+Vercel project `hdhs-dht` có `DATABASE_URL` ở development, preview và production. `HDHS_SESSION_SECRET`, `HDHS_SITE_ORIGIN` và `HDHS_OAUTH_CALLBACK_URL` hiện chỉ có ở production. `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` và `HDHS_OWNER_GITHUB_ID` chưa có. Production hiện vẫn phục vụ sơ đồ cũ; `/people/` và `/api/auth/session` trả 404. Preview Pha 1 cũ yêu cầu Vercel Authentication; kiểm tra trực tiếp cho thấy `/api/auth/session` trả `configured:false` và `/api/admin/drafts` trả `auth_not_configured`. Preview đó chưa dùng các thay đổi cục bộ hiện tại.
+
+## Trạng thái GitHub đã kiểm tra 30/09/2026
+
+Repo `minhquan-ai/hdhs-dht` có nhánh `codelocal/phase1-foundation-20260927` nhưng chưa có PR để đưa nhánh này vào `main`. PR #1 “Add owner-only public data drafts” đang là draft từ `codex/localhost-owner-admin`; PR này chỉ thêm admin/API, chưa gồm danh bạ Pha 1. Các thay đổi hiện tại ở checkout local chưa được commit hoặc push.
+
+## Gate bàn giao
+
+Dữ liệu nguồn đạt kiểm tra; export public đạt privacy; `npm test` đạt; chart/danh bạ đạt desktop/mobile; API từ chối người không phải chủ; bản nháp không thay đổi public; cấu hình OAuth/Neon hoạt động trên preview được chủ kiểm tra trước mọi lần triển khai.

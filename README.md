@@ -1,69 +1,33 @@
-# SƠ ĐỒ HĐHS DHT - BẢN NHÁP CẤU TRÚC
+# Hội đồng Học sinh DHT — Pha 1
 
-## Mục đích
+Pha 1 cung cấp sơ đồ tổ chức, danh bạ nhân sự và khu vực quản trị bản nháp chỉ dành cho chủ sở hữu.
 
-Pha 1 web hiển thị sơ đồ cơ cấu và một trang Danh bạ nhân sự riêng. Khu vực quản trị chủ sở hữu hỗ trợ tạo/sửa nháp hồ sơ người và phân công, hoặc gỡ phân công.
+## Người dùng làm được gì
 
-Không dùng bản này để quyết định cơ cấu. Cơ cấu đời thực là nguồn chính; phần mềm chỉ phản ánh dữ liệu đã được thống nhất.
+- Khách xem sơ đồ từ cấp trường đến đơn vị, chức danh và người đang được phân công.
+- Khách tìm người theo tên/lớp và lọc theo đơn vị, lớp, chức danh; một người chỉ có một hồ sơ dù có nhiều phân công.
+- Chủ sở hữu đăng nhập GitHub để tạo/sửa hồ sơ và phân công dưới dạng bản nháp, gỡ từng phân công, xem lại hoặc bỏ nháp.
+- Chủ đối chiếu bản nháp với dữ liệu nguồn, cập nhật CSV nguồn rồi xuất lại bản công khai. Lưu nháp không sửa dữ liệu nguồn hoặc trang công khai.
 
-## Dữ liệu
+## Nguồn dữ liệu
 
-Nguồn dữ liệu kỹ thuật nằm trong thư mục `database/`:
+Nguồn chuẩn là sáu CSV tại `../05 - Ứng dụng MVP/app/database`. Dữ liệu public ở `database/` được tạo bằng whitelist qua `../../tools/chuan_bi_du_lieu_cong_khai.py`. Không đưa casting, số điện thoại, ngày sinh, email cá nhân, địa chỉ hoặc ghi chú nội bộ lên web.
 
-- `units.csv`
-- `subunits.csv`
-- `academic_teams.csv`
-- `roles.csv`
-- `people.csv`
-- `assignments.csv`
+## Chạy và kiểm tra
 
-Tên file kỹ thuật được giữ ổn định để ứng dụng hoạt động. Tên đơn vị và nội dung hiển thị dùng tiếng Việt theo cơ cấu hiện hành.
+Tại thư mục dự án, chạy:
 
-## Cơ cấu hiện hành
+```sh
+python3 tools/kiem_tra_du_lieu_hdhs.py
+python3 tools/chuan_bi_du_lieu_cong_khai.py
+```
 
-Trực tiếp dưới HĐHS:
+Trong repo này, chạy `npm test`. Để xem giao diện công khai cục bộ, chạy máy chủ tĩnh trong thư mục repo rồi mở `/` và `/people/`. Để kiểm tra OAuth/API, điền cấu hình riêng theo `.env.example` và dùng Vercel Dev; không đưa bí mật vào Git hoặc chat.
 
-1. Ban Thường trực
-2. Đại hội Đại diện Học sinh
-3. Hội đồng CLB
-4. Hội đồng Học thuật
-5. Ban Đại diện Học sinh
-6. Ban Truyền thông
-7. Ban Thông tin & Hệ thống
+## Phạm vi
 
-Hội đồng CLB hiện có:
+Pha 1 gồm sơ đồ, danh bạ, tìm kiếm/lọc, hồ sơ một-người-nhiều-phân-công, quyền admin riêng cho chủ, bản nháp an toàn, kiểm tra dữ liệu và giao diện dùng được trên điện thoại. Workflow đội nhóm, tài liệu, AI, chat, lịch và mạng lưới 41 lớp thuộc pha sau.
 
-- The Flames Club
-- CLB Văn nghệ
-- CLB Âm nhạc
-- CLB Kỹ năng Đoàn - Hội
-- CLB Tin học
-- CLB Cầu lông
+## Trạng thái
 
-Ban Trật tự - Nề nếp thuộc Đoàn trường.
-
-Ban Hoạt động & Sự kiện, Ban Hậu cần và Ban Giám sát đang tạm hoãn và không nằm trong cơ cấu hiện hành.
-
-## Quy tắc đặc biệt
-
-- Chỉ có một đơn vị Truyền thông. Tên hiện hành ưu tiên là Ban Truyền thông; “CLB Truyền thông” là tên lịch sử/bí danh trong tài liệu casting.
-- The Flames Club là tên hiện hành của CLB Nhảy và tích hợp Dancesport.
-- CLB Văn nghệ và CLB Âm nhạc là hai đơn vị độc lập.
-- Các CLB/Ban hiện hành chưa chia nhóm con khi chưa có nhu cầu thực tế.
-- Khối 10 có 14 lớp, khối 11 có 13 lớp, khối 12 có 14 lớp; mỗi lớp cử 1 đại diện, tổng 41 đại diện.
-
-## Cách hiển thị
-
-Trường → BGH / Đoàn trường / HĐHS → đơn vị → chức danh → thành viên.
-
-Trang /people/ là Danh bạ nhân sự riêng, có tìm kiếm và lọc theo đơn vị/chức danh; chỉ hiện người còn ít nhất một phân công công khai. Trang /admin chỉ dành cho chủ trang đã đăng nhập GitHub; giao diện cho phép tạo/sửa nháp người, thêm phân công và tạo nháp gỡ một hoặc tất cả phân công. Gỡ phân công không xóa cứng hồ sơ người; hết phân công thì ẩn khỏi danh bạ. Lưu nháp không đổi nội dung public. Chủ dự án phải đối chiếu với nguồn trong 05, kiểm tra dữ liệu, cập nhật CSV master, xuất dữ liệu và triển khai trên Vercel.
-
-## Dữ liệu và quyền riêng tư
-
-- Danh sách casting, số điện thoại, ngày sinh và ghi chú nội bộ không được đưa vào cơ sở dữ liệu nháp hoặc web công khai.
-- Bản công khai được xuất từ `05 - Ứng dụng MVP/app/database` qua `tools/hdhs_prepare_public.py`; không sửa trực tiếp CSV trong thư mục `09`.
-- Dữ liệu admin chỉ gồm các trường cho phép của sáu CSV công khai. Mọi API ghi nháp xác thực GitHub ID phía máy chủ.
-
-## Giai đoạn hiện tại
-
-Sơ đồ, Danh bạ riêng và giao diện admin responsive cho máy tính/điện thoại đã được viết trong workspace local. Thay đổi chỉ là nháp; chưa chạy kiểm thử hay triển khai. Dữ liệu công khai vẫn phải qua đối chiếu nguồn. Quyền hạn chính thức của HĐHS phụ thuộc vào nhà trường và Đoàn trường.
+Dữ liệu nguồn đã được đối chiếu và xuất qua whitelist. Giao diện, luồng dữ liệu và API Pha 1 đã sẵn sàng; đăng nhập và lưu nháp trực tuyến cần cấu hình GitHub OAuth, GitHub ID của chủ, khóa phiên và Neon. Sau cấu hình, cần chạy lại kiểm tra admin và xem bản preview trước khi triển khai.

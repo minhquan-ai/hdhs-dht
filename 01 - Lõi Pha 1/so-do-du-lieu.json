@@ -1,0 +1,73 @@
+{
+  "version": "phase1-core-0.1",
+  "entities": {
+    "unit": {
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "status"
+      ],
+      "optional": [
+        "parent_id",
+        "sort_order",
+        "summary"
+      ]
+    },
+    "person": {
+      "required": [
+        "id",
+        "name"
+      ],
+      "optional": [
+        "class_name"
+      ]
+    },
+    "role": {
+      "required": [
+        "id",
+        "unit_id",
+        "title"
+      ],
+      "optional": [
+        "sort_order",
+        "summary"
+      ]
+    },
+    "assignment": {
+      "required": [
+        "id",
+        "person_id",
+        "unit_id",
+        "status"
+      ],
+      "optional": [
+        "role_id",
+        "role_label",
+        "sort_order"
+      ]
+    }
+  },
+  "publicWhitelist": [
+    "name",
+    "class_name",
+    "unit",
+    "team",
+    "role",
+    "organization_status"
+  ],
+  "privateFields": [
+    "phone",
+    "date_of_birth",
+    "gender",
+    "address",
+    "private_email",
+    "casting",
+    "casting_result",
+    "casting_score",
+    "internal_note",
+    "admin_data",
+    "secret",
+    "token"
+  ]
+}
