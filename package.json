@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "python3 scripts/privacy_smoke.py && python3 scripts/public_site_smoke.py"
+    "test": "python3 scripts/privacy_smoke.py && python3 scripts/public_site_smoke.py && node scripts/people_search_smoke.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2"
